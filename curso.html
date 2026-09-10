@@ -2,16 +2,22 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Curso | Teoria de Elite</title>
 
+
     <style>
 
-        /* =========================
+        /* =====================================
            RESET
-        ========================= */
+        ===================================== */
 
         * {
             margin: 0;
@@ -19,16 +25,27 @@
             box-sizing: border-box;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
 
+
         body {
-            background: #080808;
+
+            background: #070707;
             color: #ffffff;
-            font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.6;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            min-height: 100vh;
+
+            overflow-x: hidden;
         }
+
 
         a {
             color: inherit;
@@ -36,618 +53,1208 @@
         }
 
 
-        /* =========================
-           HEADER
-        ========================= */
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-
-            width: 100%;
-            padding: 22px 7%;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            background: rgba(8, 8, 8, 0.92);
-            border-bottom: 1px solid #222;
-
-            backdrop-filter: blur(12px);
+        button {
+            font-family: inherit;
         }
 
+
+        /* =====================================
+           FUNDO
+        ===================================== */
+
+        body::before {
+
+            content: "";
+
+            position: fixed;
+
+            width: 600px;
+            height: 600px;
+
+            top: -300px;
+            right: -250px;
+
+            background: #202020;
+
+            filter: blur(140px);
+
+            opacity: 0.35;
+
+            pointer-events: none;
+
+            z-index: -1;
+        }
+
+
+        /* =====================================
+           HEADER
+        ===================================== */
+
+        header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            height: 76px;
+
+            padding: 0 7%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            background: rgba(7,7,7,0.88);
+
+            border-bottom: 1px solid #202020;
+
+            backdrop-filter: blur(18px);
+        }
+
+
         .logo {
+
             font-size: 13px;
-            font-weight: bold;
+
+            font-weight: 700;
+
             letter-spacing: 3px;
         }
 
+
         nav {
+
             display: flex;
-            gap: 30px;
+
+            align-items: center;
+
+            gap: 28px;
         }
+
 
         nav a {
-            color: #777;
-            font-size: 13px;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: #fff;
-        }
-
-
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-            min-height: 75vh;
-
-            padding: 110px 7%;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-
-            background:
-                radial-gradient(
-                    circle at 75% 35%,
-                    #292929 0%,
-                    #111 20%,
-                    #080808 50%
-                );
-
-            border-bottom: 1px solid #222;
-        }
-
-        .tag {
-            margin-bottom: 20px;
 
             color: #777;
 
             font-size: 12px;
-            font-weight: bold;
-            letter-spacing: 4px;
+
+            transition: 0.3s;
         }
+
+
+        nav a:hover,
+        nav a.active {
+
+            color: #ffffff;
+        }
+
+
+        /* =====================================
+           CONTAINER
+        ===================================== */
+
+        .container {
+
+            width: min(1200px, 86%);
+
+            margin: auto;
+        }
+
+
+        /* =====================================
+           HERO
+        ===================================== */
+
+        .hero {
+
+            padding: 90px 0 60px;
+
+            position: relative;
+        }
+
+
+        .hero-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1.3fr
+                0.7fr;
+
+            gap: 30px;
+
+            align-items: stretch;
+        }
+
+
+        .hero-content {
+
+            padding: 20px 0;
+        }
+
+
+        .eyebrow {
+
+            color: #666;
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 18px;
+        }
+
 
         .hero h1 {
-            max-width: 900px;
 
-            font-size: clamp(55px, 9vw, 110px);
-            line-height: 0.92;
+            font-size:
+                clamp(52px, 8vw, 100px);
+
+            line-height: 0.9;
+
             letter-spacing: -6px;
 
-            margin-bottom: 35px;
+            margin-bottom: 25px;
         }
+
 
         .hero h1 span {
-            color: #777;
+
+            color: #666;
         }
 
-        .welcome-name {
-            color: #999;
-            font-size: 18px;
-            margin-bottom: 45px;
+
+        .greeting {
+
+            color: #888;
+
+            font-size: 16px;
+
+            line-height: 1.7;
         }
 
-        .welcome-name strong {
+
+        .greeting strong {
+
             color: #fff;
         }
 
 
-        /* =========================
-           STATUS CARDS
-        ========================= */
+        /* =====================================
+           LEVEL CARD
+        ===================================== */
+
+        .level-card {
+
+            position: relative;
+
+            padding: 32px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-between;
+
+            min-height: 260px;
+
+            background:
+
+                radial-gradient(
+                    circle at 100% 0%,
+                    #292929,
+                    #111 45%,
+                    #0b0b0b 75%
+                );
+
+            border: 1px solid #292929;
+
+            overflow: hidden;
+        }
+
+
+        .level-card::after {
+
+            content: "TEORIA";
+
+            position: absolute;
+
+            right: -15px;
+            bottom: -35px;
+
+            font-size: 100px;
+
+            font-weight: bold;
+
+            color: rgba(255,255,255,0.025);
+
+            pointer-events: none;
+        }
+
+
+        .level-top {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .level-label {
+
+            color: #666;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+        }
+
+
+        .level-number {
+
+            font-size: 50px;
+
+            font-weight: bold;
+
+            letter-spacing: -3px;
+        }
+
+
+        .level-name {
+
+            color: #aaa;
+
+            font-size: 14px;
+
+            margin-top: 5px;
+        }
+
+
+        .level-bottom {
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .level-progress {
+
+            height: 5px;
+
+            width: 100%;
+
+            background: #242424;
+
+            margin-bottom: 12px;
+        }
+
+
+        .level-progress span {
+
+            display: block;
+
+            width: 32%;
+
+            height: 100%;
+
+            background: #fff;
+        }
+
+
+        .level-info {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            color: #666;
+
+            font-size: 10px;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =====================================
+           STATS
+        ===================================== */
 
         .stats {
+
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
 
-            max-width: 850px;
+            grid-template-columns:
+                repeat(3, 1fr);
 
-            border-top: 1px solid #292929;
-            border-bottom: 1px solid #292929;
+            margin-top: 35px;
+
+            border-top: 1px solid #242424;
+
+            border-bottom: 1px solid #242424;
         }
+
 
         .stat {
-            padding: 25px 30px;
 
-            border-right: 1px solid #292929;
+            padding: 28px;
+
+            border-right: 1px solid #242424;
         }
 
+
         .stat:last-child {
+
             border-right: none;
         }
 
-        .stat-number {
-            font-size: 28px;
+
+        .stat-value {
+
+            font-size: 30px;
+
             font-weight: bold;
 
             margin-bottom: 5px;
         }
 
-        .stat-label {
-            color: #666;
 
-            font-size: 11px;
+        .stat-label {
+
+            color: #555;
+
+            font-size: 10px;
+
             letter-spacing: 2px;
         }
 
 
-        /* =========================
-           PROGRESS
-        ========================= */
+        /* =====================================
+           CONTINUE
+        ===================================== */
 
-        .progress-section {
-            padding: 90px 7%;
+        .continue-section {
 
-            border-bottom: 1px solid #222;
+            padding: 70px 0;
+
+            border-top: 1px solid #1b1b1b;
         }
 
-        .progress-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
 
-            margin-bottom: 20px;
+        .section-label {
+
+            color: #555;
+
+            font-size: 10px;
+
+            font-weight: bold;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 18px;
         }
 
-        .progress-header h2 {
-            font-size: clamp(35px, 5vw, 55px);
-            letter-spacing: -2px;
-        }
 
-        .progress-percent {
-            color: #888;
-            font-size: 14px;
-        }
+        .continue-card {
 
-        .progress-bar {
-            width: 100%;
-            height: 8px;
+            position: relative;
 
-            background: #1c1c1c;
+            display: grid;
+
+            grid-template-columns:
+                100px
+                1fr
+                auto;
+
+            align-items: center;
+
+            gap: 30px;
+
+            padding: 38px;
+
+            background: #111;
+
+            border: 1px solid #303030;
+
+            transition: 0.35s;
 
             overflow: hidden;
         }
 
-        .progress-fill {
-            width: 0%;
-            height: 100%;
 
-            background: #ffffff;
+        .continue-card:hover {
 
-            transition: width 1s ease;
-        }
+            border-color: #666;
 
-        .progress-text {
-            margin-top: 15px;
-
-            color: #666;
-            font-size: 13px;
+            transform: translateY(-4px);
         }
 
 
-        /* =========================
-           TRILHA
-        ========================= */
+        .continue-number {
 
-        .learning {
-            padding: 120px 7%;
-        }
+            font-size: 48px;
 
-        .learning h2 {
-            font-size: clamp(45px, 6vw, 75px);
-            line-height: 1;
-            letter-spacing: -4px;
+            font-weight: bold;
 
-            margin-bottom: 70px;
+            color: #292929;
+
+            letter-spacing: -3px;
         }
 
 
-        /* =========================
-           MODULE
-        ========================= */
+        .continue-tag {
 
-        .module {
-            margin-bottom: 80px;
-        }
+            color: #777;
 
-        .module-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
+            font-size: 10px;
 
-            padding-bottom: 20px;
-
-            border-bottom: 1px solid #292929;
-        }
-
-        .module-number {
-            color: #555;
-
-            font-size: 12px;
             letter-spacing: 3px;
 
             margin-bottom: 8px;
         }
 
-        .module-title {
-            font-size: 32px;
+
+        .continue-card h2 {
+
+            font-size: 30px;
+
             letter-spacing: -1px;
+
+            margin-bottom: 8px;
         }
+
+
+        .continue-card p {
+
+            color: #666;
+
+            font-size: 13px;
+        }
+
+
+        .continue-button {
+
+            padding: 16px 25px;
+
+            background: #fff;
+
+            color: #000;
+
+            font-size: 10px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            transition: 0.3s;
+        }
+
+
+        .continue-button:hover {
+
+            background: #ccc;
+
+            transform: translateX(4px);
+        }
+
+
+        /* =====================================
+           TRILHA
+        ===================================== */
+
+        .path-section {
+
+            padding: 70px 0 110px;
+        }
+
+
+        .path-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: end;
+
+            margin-bottom: 45px;
+        }
+
+
+        .path-header h2 {
+
+            font-size:
+                clamp(40px, 6vw, 70px);
+
+            line-height: 0.95;
+
+            letter-spacing: -4px;
+        }
+
+
+        .path-header p {
+
+            max-width: 350px;
+
+            color: #666;
+
+            font-size: 13px;
+
+            text-align: right;
+        }
+
+
+        /* =====================================
+           MODULE CARDS
+        ===================================== */
+
+        .modules {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 16px;
+        }
+
+
+        .module {
+
+            position: relative;
+
+            min-height: 280px;
+
+            padding: 32px;
+
+            border: 1px solid #252525;
+
+            background: #0d0d0d;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-between;
+
+            transition: 0.35s;
+
+            overflow: hidden;
+        }
+
+
+        .module:hover {
+
+            transform: translateY(-5px);
+
+            border-color: #555;
+        }
+
+
+        .module.current {
+
+            background:
+
+                radial-gradient(
+                    circle at 100% 0%,
+                    #252525,
+                    #101010 55%
+                );
+
+            border-color: #444;
+        }
+
+
+        .module.locked {
+
+            opacity: 0.48;
+        }
+
+
+        .module.locked:hover {
+
+            transform: none;
+
+            border-color: #252525;
+        }
+
+
+        .module-top {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .module-number {
+
+            color: #555;
+
+            font-size: 11px;
+
+            letter-spacing: 3px;
+        }
+
 
         .module-status {
-            color: #666;
-            font-size: 12px;
-            letter-spacing: 2px;
-        }
 
-
-        /* =========================
-           LESSONS
-        ========================= */
-
-        .lessons {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .lesson {
-            display: grid;
-            grid-template-columns: 70px 1fr auto;
-
-            align-items: center;
-
-            gap: 25px;
-
-            padding: 28px 20px;
-
-            border-bottom: 1px solid #1c1c1c;
-
-            transition: 0.3s;
-        }
-
-        .lesson:hover {
-            background: #101010;
-            transform: translateX(6px);
-        }
-
-        .lesson-number {
-            color: #555;
-
-            font-size: 13px;
-            letter-spacing: 2px;
-        }
-
-        .lesson-info h3 {
-            font-size: 20px;
-            margin-bottom: 5px;
-        }
-
-        .lesson-info p {
-            color: #666;
-            font-size: 13px;
-        }
-
-        .lesson-right {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
-
-        .xp {
-            color: #777;
-            font-size: 11px;
-            letter-spacing: 1px;
-            white-space: nowrap;
-        }
-
-        .lesson-arrow {
-            color: #777;
-            font-size: 24px;
-            transition: 0.3s;
-        }
-
-        .lesson:hover .lesson-arrow {
-            color: #fff;
-            transform: translateX(5px);
-        }
-
-
-        /* =========================
-           LOCKED
-        ========================= */
-
-        .lesson.locked {
-            opacity: 0.4;
-            cursor: not-allowed;
-        }
-
-        .lesson.locked:hover {
-            background: transparent;
-            transform: none;
-        }
-
-        .lock {
-            font-size: 14px;
-            color: #555;
-        }
-
-
-        /* =========================
-           CHALLENGE
-        ========================= */
-
-        .challenge {
-            margin-top: 30px;
-
-            padding: 45px;
+            padding: 7px 10px;
 
             border: 1px solid #292929;
 
-            background:
-                radial-gradient(
-                    circle at 100% 0%,
-                    #1c1c1c,
-                    #0d0d0d 50%
-                );
+            color: #777;
+
+            font-size: 9px;
+
+            letter-spacing: 1px;
         }
 
-        .challenge-tag {
+
+        .module.current .module-status {
+
+            color: #fff;
+
+            border-color: #555;
+        }
+
+
+        .module-icon {
+
+            font-size: 35px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .module h3 {
+
+            font-size: 27px;
+
+            letter-spacing: -1px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .module p {
+
+            max-width: 400px;
+
             color: #666;
 
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+
+        .module-bottom {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding-top: 25px;
+
+            margin-top: 25px;
+
+            border-top: 1px solid #202020;
+        }
+
+
+        .module-lessons {
+
+            color: #555;
+
+            font-size: 10px;
+
+            letter-spacing: 1px;
+        }
+
+
+        .module-arrow {
+
+            color: #666;
+
+            font-size: 20px;
+        }
+
+
+        /* =====================================
+           MINI PATH
+        ===================================== */
+
+        .path-line {
+
+            display: flex;
+
+            align-items: center;
+
+            margin: 45px 0;
+
+        }
+
+
+        .path-dot {
+
+            width: 14px;
+
+            height: 14px;
+
+            border-radius: 50%;
+
+            border: 2px solid #444;
+
+            background: #080808;
+
+            flex-shrink: 0;
+        }
+
+
+        .path-dot.active {
+
+            background: #fff;
+
+            border-color: #fff;
+
+            box-shadow:
+                0 0 0 6px #222;
+        }
+
+
+        .path-connector {
+
+            flex: 1;
+
+            height: 1px;
+
+            background: #292929;
+        }
+
+
+        /* =====================================
+           ACHIEVEMENT
+        ===================================== */
+
+        .achievement {
+
+            margin-top: 20px;
+
+            padding: 35px;
+
+            display: grid;
+
+            grid-template-columns:
+                80px
+                1fr
+                auto;
+
+            align-items: center;
+
+            gap: 25px;
+
+            background: #0d0d0d;
+
+            border: 1px solid #222;
+        }
+
+
+        .achievement-icon {
+
+            width: 60px;
+
+            height: 60px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border: 1px solid #333;
+
+            font-size: 25px;
+        }
+
+
+        .achievement-label {
+
+            color: #555;
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .achievement h3 {
+
+            font-size: 19px;
+
+            margin-bottom: 3px;
+        }
+
+
+        .achievement p {
+
+            color: #666;
+
+            font-size: 12px;
+        }
+
+
+        .achievement-xp {
+
+            color: #888;
+
             font-size: 11px;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =====================================
+           QUICK ACCESS
+        ===================================== */
+
+        .quick {
+
+            padding: 80px 0;
+
+            border-top: 1px solid #1b1b1b;
+        }
+
+
+        .quick-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+        }
+
+
+        .quick-card {
+
+            padding: 28px;
+
+            background: #0d0d0d;
+
+            border: 1px solid #222;
+
+            transition: 0.3s;
+        }
+
+
+        .quick-card:hover {
+
+            border-color: #555;
+
+            transform: translateY(-3px);
+        }
+
+
+        .quick-card span {
+
+            display: block;
+
+            color: #555;
+
+            font-size: 10px;
+
             letter-spacing: 3px;
 
             margin-bottom: 15px;
         }
 
-        .challenge h3 {
-            font-size: 30px;
-            margin-bottom: 10px;
-        }
 
-        .challenge p {
-            max-width: 600px;
+        .quick-card h3 {
 
-            color: #777;
-            font-size: 14px;
+            font-size: 22px;
 
-            margin-bottom: 30px;
-        }
-
-        .challenge-button {
-            display: inline-block;
-
-            padding: 14px 24px;
-
-            border: 1px solid #444;
-
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 2px;
-
-            transition: 0.3s;
-        }
-
-        .challenge-button:hover {
-            background: #fff;
-            color: #000;
+            margin-bottom: 7px;
         }
 
 
-        /* =========================
-           FINAL CTA
-        ========================= */
+        .quick-card p {
 
-        .final {
-            padding: 150px 7%;
-
-            text-align: center;
-
-            border-top: 1px solid #222;
-            border-bottom: 1px solid #222;
-
-            background:
-                radial-gradient(
-                    circle at center,
-                    #171717,
-                    #080808 55%
-                );
-        }
-
-        .final h2 {
-            max-width: 900px;
-            margin: 0 auto 40px;
-
-            font-size: clamp(45px, 7vw, 90px);
-            line-height: 0.95;
-            letter-spacing: -5px;
-        }
-
-        .final h2 span {
-            color: #777;
-        }
-
-        .final p {
             color: #666;
-            margin-bottom: 35px;
-        }
 
-        .btn {
-            display: inline-block;
-
-            padding: 16px 30px;
-
-            border: 1px solid #444;
-
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 2px;
-
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: #fff;
-            color: #000;
+            font-size: 12px;
         }
 
 
-        /* =========================
+        /* =====================================
            FOOTER
-        ========================= */
+        ===================================== */
 
         footer {
+
             padding: 35px 7%;
 
             display: flex;
+
             justify-content: space-between;
+
+            border-top: 1px solid #1b1b1b;
 
             color: #444;
 
-            font-size: 11px;
+            font-size: 10px;
+
             letter-spacing: 1px;
         }
 
 
-        /* =========================
-           ANIMAÇÃO
-        ========================= */
+        /* =====================================
+           ANIMAÇÕES
+        ===================================== */
 
-        .hero > * {
-            animation: aparecer 0.8s ease forwards;
+        .animate {
+
+            opacity: 0;
+
+            transform: translateY(20px);
+
+            animation:
+                appear 0.7s ease forwards;
         }
 
-        @keyframes aparecer {
 
-            from {
-                opacity: 0;
-                transform: translateY(18px);
-            }
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+
+
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+
+
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+
+
+        @keyframes appear {
 
             to {
-                opacity: 1;
-                transform: translateY(0);
-            }
 
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
         }
 
 
-        /* =========================
+        /* =====================================
            CELULAR
-        ========================= */
+        ===================================== */
 
-        @media (max-width: 700px) {
+        @media (max-width: 800px) {
 
             header {
-                padding: 20px;
+
+                height: auto;
+
+                min-height: 70px;
+
+                padding: 18px 20px;
+
+                gap: 20px;
             }
+
 
             nav {
-                gap: 14px;
+
+                gap: 13px;
             }
+
 
             nav a {
-                font-size: 11px;
+
+                font-size: 10px;
             }
+
+
+            .container {
+
+                width: calc(100% - 40px);
+            }
+
 
             .hero {
-                min-height: auto;
-                padding: 90px 20px;
+
+                padding: 65px 0 45px;
             }
 
+
+            .hero-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
             .hero h1 {
-                font-size: 58px;
+
+                font-size: 62px;
+
                 letter-spacing: -4px;
             }
 
+
+            .level-card {
+
+                min-height: 220px;
+            }
+
+
             .stats {
+
                 grid-template-columns: 1fr;
             }
 
+
             .stat {
+
                 border-right: none;
-                border-bottom: 1px solid #292929;
+
+                border-bottom: 1px solid #242424;
             }
 
+
             .stat:last-child {
+
                 border-bottom: none;
             }
 
-            .progress-section {
-                padding: 70px 20px;
+
+            .continue-section,
+            .path-section,
+            .quick {
+
+                padding: 60px 0;
             }
 
-            .learning {
-                padding: 80px 20px;
+
+            .continue-card {
+
+                grid-template-columns:
+                    55px
+                    1fr;
+
+                padding: 25px;
+
+                gap: 18px;
             }
 
-            .learning h2 {
-                font-size: 50px;
+
+            .continue-number {
+
+                font-size: 32px;
             }
 
-            .module-header {
-                align-items: flex-start;
+
+            .continue-button {
+
+                grid-column: 1 / -1;
+
+                text-align: center;
+            }
+
+
+            .path-header {
+
                 flex-direction: column;
-                gap: 10px;
+
+                align-items: flex-start;
+
+                gap: 20px;
             }
 
-            .lesson {
-                grid-template-columns: 40px 1fr auto;
-                gap: 12px;
-                padding: 22px 5px;
+
+            .path-header p {
+
+                text-align: left;
             }
 
-            .lesson-info h3 {
-                font-size: 17px;
+
+            .modules {
+
+                grid-template-columns: 1fr;
             }
 
-            .lesson-info p {
-                font-size: 12px;
+
+            .module {
+
+                min-height: 250px;
+
+                padding: 25px;
             }
 
-            .lesson-right {
-                gap: 8px;
+
+            .achievement {
+
+                grid-template-columns:
+                    60px
+                    1fr;
+
+                padding: 25px;
             }
 
-            .xp {
-                display: none;
+
+            .achievement-xp {
+
+                grid-column: 2;
             }
 
-            .challenge {
-                padding: 30px 20px;
+
+            .quick-grid {
+
+                grid-template-columns: 1fr;
             }
 
-            .final {
-                padding: 100px 20px;
-            }
-
-            .final h2 {
-                font-size: 55px;
-            }
 
             footer {
+
                 padding: 30px 20px;
+
+                flex-direction: column;
+
+                gap: 10px;
             }
 
         }
 
     </style>
+
 </head>
 
 
 <body>
 
 
-<!-- =========================
+<!-- =====================================
      HEADER
-========================= -->
+===================================== -->
 
 <header>
 
@@ -655,13 +1262,17 @@
         TEORIA DE ELITE
     </div>
 
+
     <nav>
 
         <a href="index.html">
             Início
         </a>
 
-        <a href="curso.html">
+        <a
+            href="curso.html"
+            class="active"
+        >
             Curso
         </a>
 
@@ -678,389 +1289,61 @@
 </header>
 
 
-<!-- =========================
+
+<!-- =====================================
      HERO
-========================= -->
+===================================== -->
 
 <section class="hero">
 
-    <p class="tag">
-        SUA JORNADA
-    </p>
+    <div class="container">
 
-    <h1>
-        Aprenda.
-        <br>
-        Pratique.
-        <br>
-        <span>Evolua.</span>
-    </h1>
-
-    <p class="welcome-name">
-        Bem-vindo, <strong id="studentName">estudante</strong>.
-        <br>
-        Sua jornada musical começa agora.
-    </p>
+        <div class="hero-grid">
 
 
-    <div class="stats">
+            <div class="hero-content animate">
 
-        <div class="stat">
-
-            <div class="stat-number" id="xpValue">
-                50
-            </div>
-
-            <div class="stat-label">
-                XP TOTAL
-            </div>
-
-        </div>
-
-
-        <div class="stat">
-
-            <div class="stat-number">
-                ★ <span id="starsValue">1</span>
-            </div>
-
-            <div class="stat-label">
-                ESTRELAS
-            </div>
-
-        </div>
-
-
-        <div class="stat">
-
-            <div class="stat-number">
-                <span id="lessonValue">1</span>
-            </div>
-
-            <div class="stat-label">
-                AULAS CONCLUÍDAS
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================
-     PROGRESSO
-========================= -->
-
-<section class="progress-section">
-
-    <div class="progress-header">
-
-        <h2>
-            Seu progresso.
-        </h2>
-
-        <div class="progress-percent" id="progressPercent">
-            10%
-        </div>
-
-    </div>
-
-
-    <div class="progress-bar">
-
-        <div
-            class="progress-fill"
-            id="progressFill">
-        </div>
-
-    </div>
-
-
-    <p class="progress-text">
-        Continue estudando para desbloquear novas aulas.
-    </p>
-
-</section>
-
-
-
-<!-- =========================
-     TRILHA
-========================= -->
-
-<main class="learning">
-
-    <p class="tag">
-        TRILHA DE APRENDIZADO
-    </p>
-
-    <h2>
-        Construa sua<br>
-        base musical.
-    </h2>
-
-
-
-    <!-- =========================
-         MÓDULO 01
-    ========================= -->
-
-    <section class="module">
-
-        <div class="module-header">
-
-            <div>
-
-                <div class="module-number">
-                    MÓDULO 01
+                <div class="eyebrow">
+                    SUA JORNADA MUSICAL
                 </div>
 
-                <h3 class="module-title">
-                    Fundamentos da Música
-                </h3>
 
-            </div>
+                <h1>
 
-            <div class="module-status">
-                EM ANDAMENTO
-            </div>
+                    Aprenda.
+                    <br>
 
-        </div>
+                    Pratique.
+                    <br>
 
+                    <span>Evolua.</span>
 
-        <div class="lessons">
+                </h1>
 
 
-            <!-- AULA 01 -->
+                <p class="greeting">
 
-            <a
-                href="aula-01.html"
-                class="lesson"
-            >
+                    Bem-vindo,
+                    <strong id="studentName">
+                        estudante
+                    </strong>.
 
-                <div class="lesson-number">
-                    01
-                </div>
+                    <br>
 
-                <div class="lesson-info">
+                    Continue sua jornada e domine
+                    a linguagem da música.
 
-                    <h3>
-                        O que é música?
-                    </h3>
-
-                    <p>
-                        Entenda o conceito fundamental da música.
-                    </p>
-
-                </div>
-
-                <div class="lesson-right">
-
-                    <span class="xp">
-                        +50 XP
-                    </span>
-
-                    <span class="lesson-arrow">
-                        →
-                    </span>
-
-                </div>
-
-            </a>
-
-
-
-            <!-- AULA 02 -->
-
-            <a
-                href="#"
-                class="lesson locked"
-                onclick="return false;"
-            >
-
-                <div class="lesson-number">
-                    02
-                </div>
-
-                <div class="lesson-info">
-
-                    <h3>
-                        Elementos da música
-                    </h3>
-
-                    <p>
-                        Descubra os elementos que formam a música.
-                    </p>
-
-                </div>
-
-                <div class="lesson-right">
-
-                    <span class="xp">
-                        +50 XP
-                    </span>
-
-                    <span class="lock">
-                        🔒
-                    </span>
-
-                </div>
-
-            </a>
-
-
-
-            <!-- DESAFIO -->
-
-            <div class="challenge">
-
-                <div class="challenge-tag">
-                    DESAFIO DO MÓDULO
-                </div>
-
-                <h3>
-                    Teste seus conhecimentos.
-                </h3>
-
-                <p>
-                    Complete as aulas do módulo para liberar
-                    o desafio e colocar seu conhecimento à prova.
                 </p>
 
-                <a
-                    href="#"
-                    class="challenge-button"
-                    onclick="return false;"
-                >
-                    BLOQUEADO
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         MÓDULO 02
-    ========================= -->
-
-    <section class="module">
-
-        <div class="module-header">
-
-            <div>
-
-                <div class="module-number">
-                    MÓDULO 02
-                </div>
-
-                <h3 class="module-title">
-                    Notação Musical
-                </h3>
-
-            </div>
-
-            <div class="module-status">
-                BLOQUEADO
-            </div>
-
-        </div>
-
-
-        <div class="lessons">
-
-
-            <div class="lesson locked">
-
-                <div class="lesson-number">
-                    01
-                </div>
-
-                <div class="lesson-info">
-
-                    <h3>
-                        As notas musicais
-                    </h3>
-
-                    <p>
-                        Conheça as notas e sua organização.
-                    </p>
-
-                </div>
-
-                <div class="lesson-right">
-
-                    <span class="xp">
-                        +50 XP
-                    </span>
-
-                    <span class="lock">
-                        🔒
-                    </span>
-
-                </div>
-
             </div>
 
 
 
-            <div class="lesson locked">
+            <div class="level-card animate delay-1">
 
-                <div class="lesson-number">
-                    02
-                </div>
+                <div class="level-top">
 
-                <div class="lesson-info">
+                    <div>
 
-                    <h3>
-                        A pauta musical
-                    </h3>
-
-                    <p>
-                        Aprenda como funciona a pauta.
-                    </p>
-
-                </div>
-
-                <div class="lesson-right">
-
-                    <span class="xp">
-                        +50 XP
-                    </span>
-
-                    <span class="lock">
-                        🔒
-                    </span>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="lesson locked">
-
-                <div class="lesson-number">
-                    03
-                </div>
-
-                <div class="lesson-info">
-
-                    <h3>
-                        Claves musicais
-                    </h3>
-
-                    <p>
-                        Entenda a função das claves.
-                    </p>
-
-                </div>
-
-                <div class="lesson-right">
-
-                    <span class="xp">
+                        <div class="level-label">
+                            SEU NÍVEL
