@@ -151,7 +151,7 @@
 
 function startJourney() {
 
-    const name = document.getElementById("userName").value.trim();
+    const name = document.getElementById("user-name").value.trim();
 
     if (name === "") {
         alert("Digite seu nome para continuar.");
@@ -160,8 +160,7 @@ function startJourney() {
 
     localStorage.setItem("teoriaNome", name);
 
-    document.getElementById("welcome-screen").style.display = "none";
-
+    window.location.href = "curso.html";
 }
 
 </script>
