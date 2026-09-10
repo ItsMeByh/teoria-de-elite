@@ -2,260 +2,300 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Aula 01 | Teoria de Elite</title>
 
-    <link rel="stylesheet" href="css/style.css">
-</head>
 
-<body>
+    <style>
 
-    <header>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        <div class="logo">
-            TEORIA DE ELITE
-        </div>
 
-        <nav>
-            <a href="index.html">Início</a>
-            <a href="curso.html">Curso</a>
-            <a href="materiais.html">Materiais</a>
-            <a href="#">Sobre</a>
-        </nav>
+        html {
+            scroll-behavior: smooth;
+        }
 
-    </header>
 
+        body {
 
-    <main>
+            background: #070707;
+            color: #ffffff;
 
-        <section class="course-hero">
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
 
-            <p class="tag">AULA 01 • FUNDAMENTOS</p>
+            line-height: 1.6;
 
-            <h1>
-                O que é
-                <span>música?</span>
-            </h1>
+            overflow-x: hidden;
+        }
 
-            <p>
-                A  música é a arte de expressar sentimentos 
-                através do som. Sendo eles produzidos por 
-                voz ou não
-            </p>
 
-        </section>
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
 
-        <section class="modules">
+        button {
+            font-family: inherit;
+        }
 
-            <p class="tag">LIÇÃO</p>
 
-            <h2>
-                Entendendo a música.
-            </h2>
+        /* =========================
+           HEADER
+        ========================= */
 
-            <div class="module-list">
+        header {
 
-                <div class="module">
+            position: sticky;
+            top: 0;
 
-                    <div class="module-number">
-                        01
-                    </div>
+            z-index: 100;
 
-                    <div class="module-info">
+            min-height: 76px;
 
-                        <h3>
-                            Música é organização do som
-                        </h3>
+            padding: 0 7%;
 
-                        <p>
-                            A música utiliza sons e silêncios
-                            organizados ao longo do tempo.
-                            Essa organização permite criar
-                            ritmos, melodias e diferentes
-                            formas de expressão.
-                        </p>
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-                    </div>
+            background: rgba(7,7,7,0.9);
 
-                </div>
+            border-bottom: 1px solid #202020;
 
+            backdrop-filter: blur(18px);
+        }
 
-                <div class="module">
 
-                    <div class="module-number">
-                        02
-                    </div>
+        .logo {
 
-                    <div class="module-info">
+            font-size: 13px;
 
-                        <h3>
-                            Os elementos da música
-                        </h3>
+            font-weight: bold;
 
-                        <p>
-                            Entre os principais elementos
-                            estão ritmo, melodia e harmonia.
-                            Eles trabalham juntos para formar
-                            aquilo que ouvimos como música.
-                        </p>
+            letter-spacing: 3px;
+        }
 
-                    </div>
 
-                </div>
+        nav {
 
+            display: flex;
 
-                <div class="module">
+            gap: 28px;
+        }
 
-                    <div class="module-number">
-                        03
-                    </div>
 
-                    <div class="module-info">
+        nav a {
 
-                        <h3>
-                            Música acontece no tempo
-                        </h3>
+            color: #666;
 
-                        <p>
-                            O som pode ser mais longo ou mais
-                            curto, mais forte ou mais fraco,
-                            e pode acontecer em diferentes
-                            momentos. É isso que torna o ritmo
-                            possível.
-                        </p>
+            font-size: 12px;
 
-                    </div>
+            transition: 0.3s;
+        }
 
-                </div>
 
-            </div>
+        nav a:hover,
+        nav a.active {
 
-        </section>
+            color: #fff;
+        }
 
 
-        <section class="course-cta">
+        /* =========================
+           CONTAINER
+        ========================= */
 
-            <p class="tag">
-                ATIVIDADE
-            </p>
+        .container {
 
-            <h2>
-                Vamos testar
-                <span>seu conhecimento.</span>
-            </h2>
+            width: min(1050px, 88%);
 
-            <p>
-                Em breve você poderá responder atividades
-                interativas e ganhar XP ao completar cada aula.
-            </p>
+            margin: auto;
+        }
 
-            <br>
 
-            <a href="curso.html" class="btn-primary">
-                VOLTAR AO CURSO →
-            </a>
+        /* =========================
+           HERO
+        ========================= */
 
-        </section>
-<section class="course-cta">
+        .lesson-hero {
 
-    <p class="tag">
-        ATIVIDADE • 01
-    </p>
+            padding: 90px 0 70px;
 
-    <h2>
-        Vamos testar
-        <span>seu conhecimento.</span>
-    </h2>
+            border-bottom: 1px solid #1c1c1c;
+        }
 
-    <p>
-        Responda corretamente para concluir a atividade
-        e ganhar experiência.
-    </p>
 
+        .tag {
 
-    <div class="quiz">
+            color: #666;
 
-        <h3>
-            O que é música?
-        </h3>
+            font-size: 10px;
 
-        <button onclick="responder(this, false)">
-            É apenas uma sequência de palavras.
-        </button>
+            font-weight: bold;
 
-        <button onclick="responder(this, true)">
-            É a organização de sons e silêncios ao longo do tempo.
-        </button>
+            letter-spacing: 4px;
 
-        <button onclick="responder(this, false)">
-            É somente o som produzido por instrumentos.
-        </button>
+            margin-bottom: 20px;
+        }
 
-        <p id="resultado"></p>
 
-    </div>
+        .lesson-hero h1 {
 
+            max-width: 850px;
 
-    <a href="curso.html" class="btn-primary">
-        VOLTAR AO CURSO →
-    </a>
+            font-size:
+                clamp(48px, 8vw, 90px);
 
-</section>
-    </main>
+            line-height: 0.95;
 
+            letter-spacing: -5px;
 
-    <footer>
+            margin-bottom: 30px;
+        }
 
-        <p>
-            © 2026 Teoria de Elite
-        </p>
 
-    </footer>
-<script>
+        .lesson-hero h1 span {
 
-function responder(botao, correta) {
+            color: #666;
+        }
 
-    const resultado = document.getElementById("resultado");
 
-    if (correta) {
+        .lesson-intro {
 
-        resultado.textContent =
-            "✓ Resposta correta! +50 XP";
+            max-width: 650px;
 
-        resultado.style.color = "#ffffff";
+            color: #777;
 
-        const xpAtual =
-            Number(localStorage.getItem("totalXP")) || 0;
+            font-size: 16px;
 
-        localStorage.setItem(
-            "totalXP",
-            xpAtual + 50
-        );
+            line-height: 1.8;
+        }
 
-        localStorage.setItem(
-            "aula01Concluida",
-            "true"
-        );
 
-        document.querySelectorAll(".quiz button")
-            .forEach(button => {
-                button.disabled = true;
-            });
+        /* =========================
+           LESSON INFO
+        ========================= */
 
-    } else {
+        .lesson-info {
 
-        resultado.textContent =
-            "✕ Ainda não. Tente novamente.";
+            display: grid;
 
-        resultado.style.color = "#888";
-    }
+            grid-template-columns:
+                repeat(3, 1fr);
 
-}
+            border-bottom: 1px solid #202020;
+        }
 
-</script>
-</body>
 
-</html>
+        .info-card {
+
+            padding: 25px;
+
+            border-right: 1px solid #202020;
+        }
+
+
+        .info-card:last-child {
+
+            border-right: none;
+        }
+
+
+        .info-label {
+
+            color: #555;
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .info-value {
+
+            font-size: 15px;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .content {
+
+            padding: 80px 0;
+        }
+
+
+        .section-label {
+
+            color: #555;
+
+            font-size: 10px;
+
+            font-weight: bold;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .content h2 {
+
+            font-size:
+                clamp(34px, 5vw, 55px);
+
+            line-height: 1;
+
+            letter-spacing: -3px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .content-intro {
+
+            max-width: 700px;
+
+            color: #777;
+
+            margin-bottom: 45px;
+        }
+
+
+        /* =========================
+           CONCEITOS
+        ========================= */
+
+        .concepts {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+        }
+
+
+        .
