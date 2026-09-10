@@ -2,206 +2,527 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Curso | Teoria de Elite</title>
 
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
 
-    <header>
+<header>
 
-        <div class="logo">
-            TEORIA DE ELITE
-        </div>
+    <div class="logo">
+        TEORIA DE ELITE
+    </div>
 
-        <nav>
-            <a href="index.html">Início</a>
-            <a href="curso.html">Curso</a>
-            <a href="#">Materiais</a>
-            <a href="#">Sobre</a>
-        </nav>
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="curso.html">Curso</a>
+        <a href="materiais.html">Materiais</a>
+        <a href="#">Sobre</a>
+    </nav>
 
-    </header>
+</header>
 
 
-    <main>
+<main>
 
-        <!-- CABEÇALHO DO CURSO -->
+    <!-- PAINEL DO ALUNO -->
 
-        <section class="course-hero">
+    <section class="student-panel">
 
-            <p class="tag">TEORIA DE ELITE</p>
+        <div>
+            <p class="tag">SUA JORNADA</p>
 
             <h1>
-                O caminho para
-                <span>entender música.</span>
+                Aprenda.
+                <span>Pratique.</span>
+                Evolua.
             </h1>
+        </div>
 
-            <p>
-                Uma jornada estruturada pelos fundamentos
-                da teoria musical, do primeiro conceito
-                à aplicação prática.
-            </p>
+        <div class="stats">
 
-        </section>
+            <div class="stat">
+                <strong id="xp">0</strong>
+                <span>XP</span>
+            </div>
 
+            <div class="stat">
+                <strong id="stars">0</strong>
+                <span>ESTRELAS</span>
+            </div>
 
-        <!-- MÓDULOS -->
+            <div class="stat">
+                <strong id="progress">0%</strong>
+                <span>PROGRESSO</span>
+            </div>
 
-        <section class="modules">
+        </div>
 
-            <p class="tag">TRILHA DE APRENDIZADO</p>
-
-            <h2>
-                Explore o curso.
-            </h2>
-
-
-            <div class="module-list">
-
-
-                <a href="#" class="module">
-
-                    <div class="module-number">
-                        01
-                    </div>
-
-                    <div class="module-info">
-
-                        <h3>
-                            Fundamentos da Música
-                        </h3>
-
-                        <p>
-                            Os conceitos fundamentais
-                            para começar sua formação.
-                        </p>
-
-                    </div>
-
-                    <div class="module-arrow">
-                        →
-                    </div>
-
-                </a>
+    </section>
 
 
-                <a href="#" class="module">
+    <!-- PROGRESSO -->
 
-                    <div class="module-number">
-                        02
-                    </div>
+    <section class="progress-section">
 
-                    <div class="module-info">
+        <div class="progress-info">
 
-                        <h3>
-                            Notação Musical
-                        </h3>
+            <span>PROGRESSO DO CURSO</span>
 
-                        <p>
-                            Aprenda a linguagem escrita
-                            da música.
-                        </p>
+            <strong id="progressText">
+                0%
+            </strong>
 
-                    </div>
+        </div>
 
-                    <div class="module-arrow">
-                        →
-                    </div>
+        <div class="progress-bar">
 
-                </a>
+            <div id="progressBar"></div>
+
+        </div>
+
+    </section>
 
 
-                <a href="#" class="module">
+    <!-- MAPA -->
 
-                    <div class="module-number">
-                        03
-                    </div>
+    <section class="learning-map">
 
-                    <div class="module-info">
+        <p class="tag">
+            TRILHA DE APRENDIZADO
+        </p>
 
-                        <h3>
-                            Ritmo e Métrica
-                        </h3>
-
-                        <p>
-                            Compreenda pulsação, figuras,
-                            compassos e movimento.
-                        </p>
-
-                    </div>
-
-                    <div class="module-arrow">
-                        →
-                    </div>
-
-                </a>
+        <h2>
+            Sua jornada musical.
+        </h2>
 
 
-                <a href="#" class="module">
+        <!-- MÓDULO 01 -->
 
-                    <div class="module-number">
-                        04
-                    </div>
+        <div class="learning-module">
 
-                    <div class="module-info">
+            <div class="module-header">
 
-                        <h3>
-                            Solfejo
-                        </h3>
+                <div class="module-number">
+                    01
+                </div>
 
-                        <p>
-                            Desenvolva leitura,
-                            percepção e musicalidade.
-                        </p>
+                <div>
 
-                    </div>
+                    <h3>
+                        Fundamentos da Música
+                    </h3>
 
-                    <div class="module-arrow">
-                        →
-                    </div>
+                    <p>
+                        Comece entendendo os elementos
+                        que formam a música.
+                    </p>
 
-                </a>
-
+                </div>
 
             </div>
 
-        </section>
+
+            <div class="lessons">
+
+                <a href="#" class="lesson active">
+
+                    <div class="lesson-icon">
+                        ▶
+                    </div>
+
+                    <div>
+                        <strong>
+                            O que é música?
+                        </strong>
+
+                        <span>
+                            Aula introdutória
+                        </span>
+                    </div>
+
+                    <small>
+                        +50 XP
+                    </small>
+
+                </a>
 
 
-        <!-- CHAMADA FINAL -->
+                <a href="#" class="lesson">
 
-        <section class="course-cta">
+                    <div class="lesson-icon">
+                        ?
+                    </div>
 
-            <p class="tag">
-                SUA JORNADA COMEÇA AQUI
-            </p>
+                    <div>
+                        <strong>
+                            Elementos da música
+                        </strong>
 
-            <h2>
-                Pronto para
-                <span>começar?</span>
-            </h2>
+                        <span>
+                            Aprenda os fundamentos
+                        </span>
+                    </div>
 
-            <a href="#" class="btn-primary">
-                COMEÇAR O CURSO →
-            </a>
+                    <small>
+                        +50 XP
+                    </small>
 
-        </section>
-
-    </main>
+                </a>
 
 
-    <footer>
+                <a href="#" class="lesson locked">
 
-        <p>
-            © 2026 Teoria de Elite
+                    <div class="lesson-icon">
+                        🔒
+                    </div>
+
+                    <div>
+                        <strong>
+                            Desafio do módulo
+                        </strong>
+
+                        <span>
+                            Complete as aulas anteriores
+                        </span>
+                    </div>
+
+                    <small>
+                        +100 XP
+                    </small>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- MÓDULO 02 -->
+
+        <div class="learning-module locked-module">
+
+            <div class="module-header">
+
+                <div class="module-number">
+                    02
+                </div>
+
+                <div>
+
+                    <h3>
+                        Notação Musical
+                    </h3>
+
+                    <p>
+                        Descubra como a música é escrita.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="lessons">
+
+                <a href="#" class="lesson locked">
+
+                    <div class="lesson-icon">
+                        🔒
+                    </div>
+
+                    <div>
+                        <strong>
+                            A pauta musical
+                        </strong>
+
+                        <span>
+                            Linhas e espaços
+                        </span>
+                    </div>
+
+                    <small>
+                        +50 XP
+                    </small>
+
+                </a>
+
+
+                <a href="#" class="lesson locked">
+
+                    <div class="lesson-icon">
+                        🔒
+                    </div>
+
+                    <div>
+                        <strong>
+                            Notas musicais
+                        </strong>
+
+                        <span>
+                            Dó, Ré, Mi, Fá, Sol, Lá e Si
+                        </span>
+                    </div>
+
+                    <small>
+                        +50 XP
+                    </small>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- MÓDULO 03 -->
+
+        <div class="learning-module locked-module">
+
+            <div class="module-header">
+
+                <div class="module-number">
+                    03
+                </div>
+
+                <div>
+
+                    <h3>
+                        Ritmo e Métrica
+                    </h3>
+
+                    <p>
+                        Desenvolva seu domínio do ritmo.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="lessons">
+
+                <a href="#" class="lesson locked">
+
+                    <div class="lesson-icon">
+                        🔒
+                    </div>
+
+                    <div>
+                        <strong>
+                            Pulsação
+                        </strong>
+
+                        <span>
+                            Sentindo o tempo musical
+                        </span>
+                    </div>
+
+                    <small>
+                        +50 XP
+                    </small>
+
+                </a>
+
+
+                <a href="#" class="lesson locked">
+
+                    <div class="lesson-icon">
+                        🔒
+                    </div>
+
+                    <div>
+                        <strong>
+                            Figuras musicais
+                        </strong>
+
+                        <span>
+                            Duração dos sons
+                        </span>
+                    </div>
+
+                    <small>
+                        +50 XP
+                    </small>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- MÓDULO 04 -->
+
+        <div class="learning-module locked-module">
+
+            <div class="module-header">
+
+                <div class="module-number">
+                    04
+                </div>
+
+                <div>
+
+                    <h3>
+                        Solfejo
+                    </h3>
+
+                    <p>
+                        Transforme conhecimento em prática.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="lessons">
+
+                <a href="#" class="lesson locked">
+
+                    <div class="lesson-icon">
+                        🔒
+                    </div>
+
+                    <div>
+                        <strong>
+                            Leitura musical
+                        </strong>
+
+                        <span>
+                            Primeiros exercícios
+                        </span>
+                    </div>
+
+                    <small>
+                        +50 XP
+                    </small>
+
+                </a>
+
+
+                <a href="#" class="lesson locked">
+
+                    <div class="lesson-icon">
+                        🔒
+                    </div>
+
+                    <div>
+                        <strong>
+                            Desafio final
+                        </strong>
+
+                        <span>
+                            Teste seus conhecimentos
+                        </span>
+                    </div>
+
+                    <small>
+                        +100 XP
+                    </small>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONQUISTAS -->
+
+    <section class="achievements">
+
+        <p class="tag">
+            CONQUISTAS
         </p>
 
-    </footer>
+        <h2>
+            Continue evoluindo.
+        </h2>
+
+        <div class="achievement-list">
+
+            <div class="achievement">
+                ⭐
+                <strong>
+                    Primeiro passo
+                </strong>
+                <span>
+                    Complete sua primeira aula
+                </span>
+            </div>
+
+            <div class="achievement locked-achievement">
+                🏆
+                <strong>
+                    Teórico
+                </strong>
+                <span>
+                    Complete um módulo
+                </span>
+            </div>
+
+            <div class="achievement locked-achievement">
+                🎵
+                <strong>
+                    Músico em formação
+                </strong>
+                <span>
+                    Alcance 500 XP
+                </span>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Teoria de Elite
+    </p>
+
+</footer>
+
+
+<script>
+
+let xp = Number(localStorage.getItem("teoriaXP")) || 0;
+let stars = Number(localStorage.getItem("teoriaStars")) || 0;
+
+function atualizarPainel() {
+
+    document.getElementById("xp").textContent = xp;
+    document.getElementById("stars").textContent = stars;
+
+    let progresso = Math.min(Math.round((xp / 500) * 100), 100);
+
+    document.getElementById("progress").textContent =
+        progresso + "%";
+
+    document.getElementById("progressText").textContent =
+        progresso + "%";
+
+    document.getElementById("progressBar").style.width =
+        progresso + "%";
+}
+
+atualizarPainel();
+
+</script>
 
 </body>
 
