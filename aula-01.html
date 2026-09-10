@@ -159,7 +159,51 @@
             </a>
 
         </section>
+<section class="course-cta">
 
+    <p class="tag">
+        ATIVIDADE • 01
+    </p>
+
+    <h2>
+        Vamos testar
+        <span>seu conhecimento.</span>
+    </h2>
+
+    <p>
+        Responda corretamente para concluir a atividade
+        e ganhar experiência.
+    </p>
+
+
+    <div class="quiz">
+
+        <h3>
+            O que é música?
+        </h3>
+
+        <button onclick="responder(this, false)">
+            É apenas uma sequência de palavras.
+        </button>
+
+        <button onclick="responder(this, true)">
+            É a organização de sons e silêncios ao longo do tempo.
+        </button>
+
+        <button onclick="responder(this, false)">
+            É somente o som produzido por instrumentos.
+        </button>
+
+        <p id="resultado"></p>
+
+    </div>
+
+
+    <a href="curso.html" class="btn-primary">
+        VOLTAR AO CURSO →
+    </a>
+
+</section>
     </main>
 
 
@@ -170,7 +214,48 @@
         </p>
 
     </footer>
+<script>
 
+function responder(botao, correta) {
+
+    const resultado = document.getElementById("resultado");
+
+    if (correta) {
+
+        resultado.textContent =
+            "✓ Resposta correta! +50 XP";
+
+        resultado.style.color = "#ffffff";
+
+        const xpAtual =
+            Number(localStorage.getItem("totalXP")) || 0;
+
+        localStorage.setItem(
+            "totalXP",
+            xpAtual + 50
+        );
+
+        localStorage.setItem(
+            "aula01Concluida",
+            "true"
+        );
+
+        document.querySelectorAll(".quiz button")
+            .forEach(button => {
+                button.disabled = true;
+            });
+
+    } else {
+
+        resultado.textContent =
+            "✕ Ainda não. Tente novamente.";
+
+        resultado.style.color = "#888";
+    }
+
+}
+
+</script>
 </body>
 
 </html>
