@@ -384,3 +384,129 @@ footer {
         padding: 100px 20px;
     }
 }
+/* =========================
+   TELA DE BOAS-VINDAS
+========================= */
+
+#welcome-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            #252525 0%,
+            #080808 55%
+        );
+}
+
+.welcome-box {
+    width: 100%;
+    max-width: 700px;
+
+    text-align: center;
+}
+
+.welcome-box h1 {
+    margin: 20px 0;
+
+    font-size: clamp(45px, 7vw, 80px);
+    line-height: 0.95;
+    letter-spacing: -3px;
+}
+
+.welcome-box h1 span {
+    display: block;
+    color: #888;
+}
+
+.welcome-box > p:not(.tag) {
+    margin-bottom: 40px;
+
+    color: #999;
+    font-size: 18px;
+}
+
+.welcome-box label {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: #aaa;
+    font-size: 14px;
+}
+
+.welcome-box input {
+    width: 100%;
+    max-width: 500px;
+
+    padding: 18px 20px;
+
+    border: 1px solid #333;
+    background: #0d0d0d;
+
+    color: #fff;
+
+    font-size: 17px;
+
+    outline: none;
+}
+
+.welcome-box input:focus {
+    border-color: #777;
+}
+
+.welcome-box button {
+    display: block;
+
+    width: 100%;
+    max-width: 500px;
+
+    margin: 15px auto 0;
+
+    padding: 18px;
+
+    border: none;
+
+    background: #fff;
+    color: #080808;
+
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.welcome-box button:hover {
+    transform: translateY(-3px);
+    background: #ddd;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 700px) {
+
+    #welcome-screen {
+        padding: 20px;
+    }
+
+    .welcome-box h1 {
+        font-size: 50px;
+    }
+
+    .welcome-box > p:not(.tag) {
+        font-size: 16px;
+    }
+
+}
