@@ -4,67 +4,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Teoria de Elite</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 
 <body>
-<!-- TELA DE BOAS-VINDAS -->
 
-<div id="welcome-screen">
+    <!-- TELA DE BOAS-VINDAS -->
 
-    <div class="welcome-box">
+    <section class="welcome">
 
-        <p class="tag">TEORIA DE ELITE</p>
+        <div class="welcome-box">
 
-        <h1>
-            Sua jornada musical
-            <span>começa aqui.</span>
-        </h1>
+            <p class="tag">
+                TEORIA DE ELITE
+            </p>
 
-        <p>
-            Vamos conhecer você antes de começar.
-        </p>
+            <h1>
+                Sua jornada musical
+                <span>começa aqui.</span>
+            </h1>
 
-        <label for="userName">
-            Como podemos chamar você?
-        </label>
+            <p>
+                Aprenda teoria musical de forma clara,
+                prática e interativa.
+            </p>
 
-        <input
-            type="text"
-            id="userName"
-            placeholder="Digite seu nome"
-            maxlength="30"
-        >
+            <label for="userName">
+                Como podemos chamar você?
+            </label>
 
-        <button onclick="startJourney()">
-            COMEÇAR →
-        </button>
+            <input
+                type="text"
+                id="userName"
+                placeholder="Digite seu nome"
+                maxlength="30"
+            >
 
-    </div>
+            <button onclick="startJourney()">
+                COMEÇAR →
+            </button>
 
-</div>
+        </div>
+
+    </section>
+
+
+    <!-- CABEÇALHO -->
+
     <header>
+
         <div class="logo">
             TEORIA DE ELITE
         </div>
 
         <nav>
-            <a href="index.html">Início</a>
-            <a href="#">Curso</a>
-            <a href="materiais.html">Materiais</a>
-            <a href="#">Sobre</a>
+
+            <a href="index.html">
+                Início
+            </a>
+
+            <a href="curso.html">
+                Curso
+            </a>
+
+            <a href="materiais.html">
+                Materiais
+            </a>
+
+            <a href="#">
+                Sobre
+            </a>
+
         </nav>
+
     </header>
 
+
+    <!-- CONTEÚDO -->
 
     <main>
 
         <section class="hero">
 
             <div class="hero-text">
-                <p class="tag">TEORIA DE ELITE</p>
+
+                <p class="tag">
+                    TEORIA DE ELITE
+                </p>
 
                 <h1>
                     Domine a linguagem
@@ -77,62 +106,76 @@
                 </p>
 
                 <div class="hero-buttons">
-                    <a href="curso.html" class="btn-primary">Começar agora</a>
-                    <a href="curso.html" class="btn-secondary">Conhecer o curso</a>
+
+                    <a href="curso.html" class="btn-primary">
+                        COMEÇAR AGORA
+                    </a>
+
+                    <a href="curso.html" class="btn-secondary">
+                        CONHECER O CURSO
+                    </a>
+
                 </div>
+
             </div>
 
         </section>
 
 
-        <section class="about">
-
-            <p class="tag">SOBRE O TEORIA DE ELITE</p>
-
-            <h2>
-                Conhecimento musical
-                levado a sério.
-            </h2>
-
-            <p>
-                Uma plataforma dedicada ao aprendizado
-                da teoria musical, criada para transformar
-                conhecimento em prática.
-            </p>
-
-        </section>
-
+        <!-- ÁREAS DO CURSO -->
 
         <section class="courses">
 
-            <p class="tag">APRENDA</p>
+            <p class="tag">
+                APRENDA
+            </p>
 
-            <h2>O que você vai encontrar</h2>
+            <h2>
+                Construa sua
+                <span>base musical.</span>
+            </h2>
 
-            <div class="cards">
+            <div class="card-container">
 
                 <div class="card">
-                    <h3>Teoria Musical</h3>
+
+                    <h3>
+                        Teoria Musical
+                    </h3>
+
                     <p>
                         Fundamentos essenciais para
                         compreender a música.
                     </p>
+
                 </div>
 
+
                 <div class="card">
-                    <h3>Percepção Musical</h3>
+
+                    <h3>
+                        Percepção Musical
+                    </h3>
+
                     <p>
                         Desenvolva sua capacidade de
                         ouvir e compreender música.
                     </p>
+
                 </div>
 
+
                 <div class="card">
-                    <h3>Solfejo</h3>
+
+                    <h3>
+                        Solfejo
+                    </h3>
+
                     <p>
                         Desenvolva leitura e percepção
                         através do solfejo.
                     </p>
+
                 </div>
 
             </div>
@@ -142,26 +185,45 @@
     </main>
 
 
+    <!-- RODAPÉ -->
+
     <footer>
-        <p>© 2026 Teoria de Elite</p>
+
+        <p>
+            © 2026 Teoria de Elite
+        </p>
+
     </footer>
-<script>
 
-function startJourney() {
 
-    const name = document.getElementById("userName").value.trim();
+    <!-- JAVASCRIPT -->
 
-    if (name === "") {
-        alert("Digite seu nome para continuar.");
-        return;
-    }
+    <script>
 
-    localStorage.setItem("teoriaNome", name);
+        function startJourney() {
 
-    window.location.href = "curso.html";
-}
+            const input = document.getElementById("userName");
 
-</script>
+            const name = input.value.trim();
+
+            if (name === "") {
+
+                alert("Digite seu nome para continuar.");
+
+                input.focus();
+
+                return;
+
+            }
+
+            localStorage.setItem("teoriaNome", name);
+
+            window.location.href = "curso.html";
+
+        }
+
+    </script>
+
 </body>
 
 </html>
