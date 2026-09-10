@@ -510,3 +510,48 @@ footer {
     }
 
 }
+/* ==============================
+   QUIZ DA AULA
+============================== */
+
+.quiz {
+    margin-top: 35px;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: #111;
+    border: 1px solid #292929;
+    text-align: left;
+}
+
+.quiz h3 {
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+.quiz button {
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 16px;
+    background: #0b0b0b;
+    color: #aaa;
+    border: 1px solid #292929;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.quiz button:hover {
+    color: #fff;
+    border-color: #666;
+}
+
+.quiz button:disabled {
+    cursor: default;
+}
+
+#resultado {
+    margin-top: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
