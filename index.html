@@ -147,5 +147,22 @@
     </footer>
 
 </body>
+<script>
 
+function startJourney() {
+
+    const name = document.getElementById("userName").value.trim();
+
+    if (name === "") {
+        alert("Digite seu nome para continuar.");
+        return;
+    }
+
+    localStorage.setItem("teoriaNome", name);
+
+    document.getElementById("welcome-screen").style.display = "none";
+
+}
+
+</script>
 </html>
