@@ -163,5 +163,26 @@ function startJourney() {
 
 </script>
 </body>
+<script>
+
+function startJourney() {
+
+    const name = document.getElementById("user-name").value.trim();
+
+    if (name === "") {
+
+        alert("Digite seu nome para continuar.");
+
+        return;
+
+    }
+
+    localStorage.setItem("teoriaNome", name);
+
+    window.location.href = "curso.html";
+
+}
+
+</script>
 
 </html>
