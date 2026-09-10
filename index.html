@@ -7,14 +7,140 @@
 
     <title>Teoria de Elite</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #080808;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .welcome {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .welcome-box {
+            width: 100%;
+            max-width: 720px;
+            text-align: center;
+        }
+
+        .tag {
+            font-size: 13px;
+            letter-spacing: 5px;
+            color: #888;
+            margin-bottom: 35px;
+        }
+
+        h1 {
+            font-size: clamp(52px, 8vw, 100px);
+            line-height: 0.95;
+            letter-spacing: -5px;
+            margin-bottom: 45px;
+        }
+
+        h1 span {
+            display: block;
+            color: #777;
+        }
+
+        .question {
+            font-size: 17px;
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 100%;
+            height: 65px;
+            background: #101010;
+            border: 1px solid #444;
+            color: #fff;
+            padding: 0 20px;
+            font-size: 17px;
+            outline: none;
+            margin-bottom: 15px;
+        }
+
+        input:focus {
+            border-color: #888;
+        }
+
+        input::placeholder {
+            color: #666;
+        }
+
+        button {
+            width: 100%;
+            height: 65px;
+            border: none;
+            background: #ffffff;
+            color: #080808;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #cccccc;
+        }
+
+        .error {
+            margin-top: 15px;
+            color: #999;
+            font-size: 14px;
+            display: none;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 25px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: #444;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 600px) {
+
+            h1 {
+                font-size: 52px;
+                letter-spacing: -3px;
+            }
+
+            .tag {
+                font-size: 11px;
+                letter-spacing: 3px;
+            }
+
+        }
+
+    </style>
 </head>
+
 
 <body>
 
-    <!-- TELA DE BOAS-VINDAS -->
-
-    <section class="welcome">
+    <main class="welcome">
 
         <div class="welcome-box">
 
@@ -27,9 +153,9 @@
                 <span>começa aqui.</span>
             </h1>
 
-            <label for="userName">
+            <p class="question">
                 Como podemos chamar você?
-            </label>
+            </p>
 
             <input
                 type="text"
@@ -42,179 +168,36 @@
                 COMEÇAR →
             </button>
 
-        </div>
-
-    </section>
-
-
-    <!-- CABEÇALHO -->
-
-    <header>
-
-        <div class="logo">
-            TEORIA DE ELITE
-        </div>
-
-        <nav>
-
-            <a href="index.html">
-                Início
-            </a>
-
-            <a href="curso.html">
-                Curso
-            </a>
-
-            <a href="materiais.html">
-                Materiais
-            </a>
-
-            <a href="#">
-                Sobre
-            </a>
-
-        </nav>
-
-    </header>
-
-
-    <!-- CONTEÚDO -->
-
-    <main>
-
-        <section class="hero">
-
-            <div class="hero-text">
-
-                <p class="tag">
-                    TEORIA DE ELITE
-                </p>
-
-                <h1>
-                    Domine a linguagem
-                    <span>da música.</span>
-                </h1>
-
-                <p>
-                    Aprenda teoria musical de forma clara,
-                    organizada e prática.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <a href="curso.html" class="btn-primary">
-                        COMEÇAR AGORA
-                    </a>
-
-                    <a href="curso.html" class="btn-secondary">
-                        CONHECER O CURSO
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ÁREAS DO CURSO -->
-
-        <section class="courses">
-
-            <p class="tag">
-                APRENDA
+            <p class="error" id="error">
+                Digite seu nome para continuar.
             </p>
 
-            <h2>
-                Construa sua
-                <span>base musical.</span>
-            </h2>
-
-            <div class="card-container">
-
-                <div class="card">
-
-                    <h3>
-                        Teoria Musical
-                    </h3>
-
-                    <p>
-                        Fundamentos essenciais para
-                        compreender a música.
-                    </p>
-
-                </div>
-
-
-                <div class="card">
-
-                    <h3>
-                        Percepção Musical
-                    </h3>
-
-                    <p>
-                        Desenvolva sua capacidade de
-                        ouvir e compreender música.
-                    </p>
-
-                </div>
-
-
-                <div class="card">
-
-                    <h3>
-                        Solfejo
-                    </h3>
-
-                    <p>
-                        Desenvolva leitura e percepção
-                        através do solfejo.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
+        </div>
 
     </main>
 
 
-    <!-- RODAPÉ -->
+    <div class="footer">
+        TEORIA DE ELITE © 2026
+    </div>
 
-    <footer>
-
-        <p>
-            © 2026 Teoria de Elite
-        </p>
-
-    </footer>
-
-
-    <!-- JAVASCRIPT -->
 
     <script>
 
         function startJourney() {
 
-            const input = document.getElementById("userName");
-
-            const name = input.value.trim();
+            const name = document.getElementById("userName").value.trim();
 
             if (name === "") {
 
-                alert("Digite seu nome para continuar.");
-
-                input.focus();
+                document.getElementById("error").style.display = "block";
 
                 return;
-
             }
 
-            localStorage.setItem("teoriaNome", name);
+            localStorage.setItem("userName", name);
 
             window.location.href = "curso.html";
-
         }
 
     </script>
