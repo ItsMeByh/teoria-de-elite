@@ -394,6 +394,281 @@ footer{
     }
 }
 </style>
+/* =========================================
+   ENTRADA CINEMATOGRÁFICA — TEORIA DE ELITE
+========================================= */
+
+#cinematicIntro {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    z-index: 999999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 75% 45%,
+            #292929 0%,
+            #151515 28%,
+            #090909 58%,
+            #030303 100%
+        );
+
+    color: #fff;
+
+    opacity: 1;
+    visibility: visible;
+
+    transition:
+        opacity 0.9s ease,
+        visibility 0.9s ease;
+}
+
+/* Luz dramática */
+
+.cinematic-glow {
+    position: absolute;
+
+    width: 650px;
+    height: 650px;
+
+    right: -180px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background: radial-gradient(
+        circle,
+        rgba(255,255,255,0.13) 0%,
+        rgba(255,255,255,0.045) 30%,
+        transparent 70%
+    );
+
+    filter: blur(25px);
+
+    pointer-events: none;
+}
+
+/* Conteúdo */
+
+.cinematic-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(1050px, 88%);
+
+    margin-right: auto;
+    margin-left: auto;
+
+    animation: cinematicEnter 1.2s ease forwards;
+}
+
+.cinematic-brand {
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 7px;
+
+    color: #888;
+
+    margin-bottom: 22px;
+}
+
+.cinematic-line {
+    width: 55px;
+    height: 1px;
+
+    background: rgba(255,255,255,0.45);
+
+    margin-bottom: 28px;
+}
+
+.cinematic-content h1 {
+    margin: 0;
+
+    max-width: 900px;
+
+    font-size: clamp(48px, 8vw, 105px);
+
+    line-height: 0.88;
+
+    letter-spacing: -6px;
+
+    font-weight: 800;
+}
+
+.cinematic-content h1 span {
+    display: block;
+
+    color: #666;
+}
+
+.cinematic-content p {
+    margin-top: 32px;
+    margin-bottom: 38px;
+
+    color: #8b8b8b;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    letter-spacing: 0.3px;
+}
+
+/* Botão */
+
+.cinematic-content button {
+    display: inline-flex;
+    align-items: center;
+    gap: 22px;
+
+    padding: 17px 24px;
+
+    border: 1px solid rgba(255,255,255,0.3);
+
+    background: #fff;
+
+    color: #050505;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 2.5px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.cinematic-content button span {
+    font-size: 18px;
+
+    line-height: 0;
+}
+
+.cinematic-content button:hover {
+    transform: translateX(8px);
+
+    background: #d8d8d8;
+}
+
+/* Parte inferior */
+
+.cinematic-bottom {
+    position: absolute;
+
+    left: 6%;
+    right: 6%;
+    bottom: 28px;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: #555;
+
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+/* Entrada */
+
+@keyframes cinematicEnter {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* Saída */
+
+#cinematicIntro.cinematic-hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* CELULAR */
+
+@media (max-width: 700px) {
+
+    #cinematicIntro {
+        align-items: center;
+    }
+
+    .cinematic-content {
+        width: calc(100% - 42px);
+    }
+
+    .cinematic-brand {
+        font-size: 9px;
+        letter-spacing: 5px;
+
+        margin-bottom: 18px;
+    }
+
+    .cinematic-line {
+        margin-bottom: 25px;
+    }
+
+    .cinematic-content h1 {
+        font-size: 52px;
+
+        letter-spacing: -4px;
+
+        line-height: 0.91;
+    }
+
+    .cinematic-content p {
+        font-size: 13px;
+
+        margin-top: 28px;
+        margin-bottom: 32px;
+    }
+
+    .cinematic-content button {
+        padding: 16px 20px;
+    }
+
+    .cinematic-glow {
+        width: 450px;
+        height: 450px;
+
+        right: -230px;
+    }
+
+    .cinematic-bottom {
+        left: 21px;
+        right: 21px;
+
+        bottom: 20px;
+
+        font-size: 7px;
+
+        letter-spacing: 2px;
+    }
+
+}
 </head>
 
 <body>
