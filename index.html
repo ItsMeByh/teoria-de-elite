@@ -1,207 +1,925 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Teoria de Elite</title>
+    <title>Curso | Teoria de Elite</title>
 
     <style>
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            min-height: 100vh;
-            background: #080808;
-            color: #ffffff;
-            font-family: Arial, Helvetica, sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .welcome {
-            width: 100%;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 20px;
-        }
-
-        .welcome-box {
-            width: 100%;
-            max-width: 720px;
-            text-align: center;
-        }
-
-        .tag {
-            font-size: 13px;
-            letter-spacing: 5px;
-            color: #888;
-            margin-bottom: 35px;
-        }
-
-        h1 {
-            font-size: clamp(52px, 8vw, 100px);
-            line-height: 0.95;
-            letter-spacing: -5px;
-            margin-bottom: 45px;
-        }
-
-        h1 span {
-            display: block;
-            color: #777;
-        }
-
-        .question {
-            font-size: 17px;
-            color: #aaa;
-            margin-bottom: 15px;
-        }
-
-        input {
-            width: 100%;
-            height: 65px;
-            background: #101010;
-            border: 1px solid #444;
+            background: #070707;
             color: #fff;
-            padding: 0 20px;
-            font-size: 17px;
-            outline: none;
-            margin-bottom: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        input:focus {
-            border-color: #888;
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
-        input::placeholder {
-            color: #666;
+        body::before {
+            content: "";
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            top: -300px;
+            right: -250px;
+            background: #202020;
+            filter: blur(140px);
+            opacity: 0.35;
+            pointer-events: none;
+            z-index: -1;
         }
 
-        button {
-            width: 100%;
-            height: 65px;
-            border: none;
-            background: #ffffff;
-            color: #080808;
-            font-size: 14px;
-            font-weight: bold;
+        /* ================================
+           HEADER
+        ================================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            min-height: 76px;
+            padding: 0 7%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+
+            background: rgba(7,7,7,0.9);
+            border-bottom: 1px solid #202020;
+            backdrop-filter: blur(18px);
+        }
+
+        .logo {
+            font-size: 13px;
+            font-weight: 700;
             letter-spacing: 3px;
-            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        nav a {
+            color: #777;
+            font-size: 12px;
             transition: 0.3s;
         }
 
-        button:hover {
-            background: #cccccc;
+        nav a:hover,
+        nav a.active {
+            color: #fff;
         }
 
-        .error {
-            margin-top: 15px;
-            color: #999;
+        /* ================================
+           CONTAINER
+        ================================= */
+
+        .container {
+            width: min(1200px, 86%);
+            margin: auto;
+        }
+
+        /* ================================
+           HERO
+        ================================= */
+
+        .hero {
+            padding: 90px 0 55px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .hero-content {
+            padding: 20px 0;
+        }
+
+        .eyebrow {
+            color: #666;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(52px, 8vw, 100px);
+            line-height: 0.9;
+            letter-spacing: -6px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #666;
+        }
+
+        .greeting {
+            color: #888;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .greeting strong {
+            color: #fff;
+        }
+
+        /* ================================
+           LEVEL
+        ================================= */
+
+        .level-card {
+            position: relative;
+
+            padding: 32px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            min-height: 260px;
+
+            background:
+                radial-gradient(
+                    circle at 100% 0%,
+                    #292929,
+                    #111 45%,
+                    #0b0b0b 75%
+                );
+
+            border: 1px solid #292929;
+            overflow: hidden;
+        }
+
+        .level-card::after {
+            content: "TEORIA";
+
+            position: absolute;
+            right: -15px;
+            bottom: -35px;
+
+            font-size: 100px;
+            font-weight: bold;
+            color: rgba(255,255,255,0.025);
+
+            pointer-events: none;
+        }
+
+        .level-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .level-label {
+            color: #666;
+            font-size: 10px;
+            letter-spacing: 3px;
+        }
+
+        .level-number {
+            font-size: 50px;
+            font-weight: bold;
+            letter-spacing: -3px;
+        }
+
+        .level-name {
+            color: #aaa;
             font-size: 14px;
-            display: none;
+            margin-top: 5px;
         }
 
-        .footer {
-            position: fixed;
-            bottom: 25px;
-            left: 0;
+        .level-bottom {
+            position: relative;
+            z-index: 2;
+        }
+
+        .level-progress {
+            height: 5px;
             width: 100%;
-            text-align: center;
-            color: #444;
-            font-size: 12px;
+            background: #242424;
+            margin-bottom: 12px;
+        }
+
+        .level-progress span {
+            display: block;
+            width: 2%;
+            height: 100%;
+            background: #fff;
+        }
+
+        .level-info {
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            font-size: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* ================================
+           STATS
+        ================================= */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            margin-top: 35px;
+
+            border-top: 1px solid #242424;
+            border-bottom: 1px solid #242424;
+        }
+
+        .stat {
+            padding: 28px;
+            border-right: 1px solid #242424;
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat-value {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #555;
+            font-size: 10px;
             letter-spacing: 2px;
         }
 
-        @media (max-width: 600px) {
+        /* ================================
+           CONTINUE
+        ================================= */
 
-            h1 {
-                font-size: 52px;
-                letter-spacing: -3px;
-            }
-
-            .tag {
-                font-size: 11px;
-                letter-spacing: 3px;
-            }
-
+        .continue-section {
+            padding: 70px 0;
+            border-top: 1px solid #1b1b1b;
         }
 
+        .section-label {
+            color: #555;
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            margin-bottom: 18px;
+        }
+
+        .continue-card {
+            display: grid;
+            grid-template-columns: 100px 1fr auto;
+
+            align-items: center;
+            gap: 30px;
+
+            padding: 38px;
+
+            background: #111;
+            border: 1px solid #303030;
+
+            transition: 0.35s;
+        }
+
+        .continue-card:hover {
+            border-color: #666;
+            transform: translateY(-4px);
+        }
+
+        .continue-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: #292929;
+            letter-spacing: -3px;
+        }
+
+        .continue-tag {
+            color: #777;
+            font-size: 10px;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        .continue-card h2 {
+            font-size: 30px;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+        }
+
+        .continue-card p {
+            color: #666;
+            font-size: 13px;
+        }
+
+        .continue-button {
+            padding: 16px 25px;
+
+            background: #fff;
+            color: #000;
+
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 2px;
+
+            transition: 0.3s;
+        }
+
+        .continue-button:hover {
+            background: #ccc;
+            transform: translateX(4px);
+        }
+
+        /* ================================
+           TRILHA
+        ================================= */
+
+        .path-section {
+            padding: 70px 0 110px;
+        }
+
+        .path-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 30px;
+            margin-bottom: 45px;
+        }
+
+        .path-header h2 {
+            font-size: clamp(40px, 6vw, 70px);
+            line-height: 0.95;
+            letter-spacing: -4px;
+        }
+
+        .path-header p {
+            max-width: 350px;
+            color: #666;
+            font-size: 13px;
+            text-align: right;
+            line-height: 1.7;
+        }
+
+        /* ================================
+           MÓDULOS
+        ================================= */
+
+        .module {
+            margin-bottom: 45px;
+        }
+
+        .module-title {
+            display: flex;
+            align-items: baseline;
+            gap: 15px;
+            margin-bottom: 18px;
+        }
+
+        .module-number {
+            color: #555;
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .module-title h3 {
+            font-size: 22px;
+        }
+
+        .lessons {
+            display: grid;
+            gap: 10px;
+        }
+
+        .lesson {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+
+            min-height: 78px;
+            padding: 18px 22px;
+
+            background: #0d0d0d;
+            border: 1px solid #252525;
+
+            transition: 0.25s;
+        }
+
+        .lesson:hover {
+            border-color: #555;
+        }
+
+        .lesson.available {
+            cursor: pointer;
+        }
+
+        .lesson.available:hover {
+            transform: translateX(5px);
+            background: #111;
+        }
+
+        .lesson-number {
+            min-width: 42px;
+
+            color: #555;
+
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .lesson-info {
+            flex: 1;
+        }
+
+        .lesson-info strong {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .lesson-info span {
+            color: #555;
+            font-size: 11px;
+        }
+
+        .lesson-status {
+            color: #555;
+            font-size: 17px;
+        }
+
+        .lesson.available .lesson-status {
+            color: #fff;
+        }
+
+        .lesson.locked {
+            opacity: 0.48;
+        }
+
+        /* ================================
+           ACHIEVEMENT
+        ================================= */
+
+        .achievement {
+            margin-top: 20px;
+
+            padding: 35px;
+
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            align-items: center;
+            gap: 25px;
+
+            background: #0d0d0d;
+            border: 1px solid #222;
+        }
+
+        .achievement-icon {
+            width: 60px;
+            height: 60px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid #333;
+
+            font-size: 25px;
+        }
+
+        .achievement-label {
+            color: #555;
+            font-size: 9px;
+            letter-spacing: 3px;
+            margin-bottom: 5px;
+        }
+
+        .achievement h3 {
+            font-size: 19px;
+            margin-bottom: 3px;
+        }
+
+        .achievement p {
+            color: #666;
+            font-size: 12px;
+        }
+
+        .achievement-xp {
+            color: #888;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        /* ================================
+           ACESSO RÁPIDO
+        ================================= */
+
+        .quick {
+            padding: 80px 0;
+            border-top: 1px solid #1b1b1b;
+        }
+
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .quick-card {
+            padding: 28px;
+            background: #0d0d0d;
+            border: 1px solid #222;
+            transition: 0.3s;
+        }
+
+        .quick-card:hover {
+            border-color: #555;
+            transform: translateY(-3px);
+        }
+
+        .quick-card span {
+            display: block;
+            color: #555;
+            font-size: 10px;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .quick-card h3 {
+            font-size: 22px;
+            margin-bottom: 7px;
+        }
+
+        .quick-card p {
+            color: #666;
+            font-size: 12px;
+        }
+
+        /* ================================
+           FOOTER
+        ================================= */
+
+        footer {
+            padding: 35px 7%;
+
+            display: flex;
+            justify-content: space-between;
+
+            border-top: 1px solid #1b1b1b;
+
+            color: #444;
+            font-size: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* ================================
+           CELULAR
+        ================================= */
+
+        @media (max-width: 800px) {
+
+            header {
+                min-height: 70px;
+                padding: 16px 20px;
+                gap: 15px;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 10px;
+            }
+
+            .container {
+                width: calc(100% - 40px);
+            }
+
+            .hero {
+                padding: 65px 0 45px;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 62px;
+                letter-spacing: -4px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .stat {
+                border-right: none;
+                border-bottom: 1px solid #242424;
+            }
+
+            .stat:last-child {
+                border-bottom: none;
+            }
+
+            .continue-card {
+                grid-template-columns: 55px 1fr;
+                padding: 25px;
+                gap: 18px;
+            }
+
+            .continue-number {
+                font-size: 32px;
+            }
+
+            .continue-button {
+                grid-column: 1 / -1;
+                text-align: center;
+            }
+
+            .path-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .path-header p {
+                text-align: left;
+            }
+
+            .lesson {
+                padding: 16px;
+                min-height: 70px;
+                gap: 12px;
+            }
+
+            .lesson-number {
+                min-width: 32px;
+            }
+
+            .lesson-info strong {
+                font-size: 14px;
+            }
+
+            .lesson-info span {
+                font-size: 10px;
+            }
+
+            .achievement {
+                grid-template-columns: 60px 1fr;
+                padding: 25px;
+            }
+
+            .achievement-xp {
+                grid-column: 2;
+            }
+
+            .quick-grid {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                padding: 30px 20px;
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
     </style>
 </head>
 
-
 <body>
 
-    <main class="welcome">
+<header>
 
-        <div class="welcome-box">
+    <a href="index.html" class="logo">
+        TEORIA DE ELITE
+    </a>
 
-            <p class="tag">
-                TEORIA DE ELITE
-            </p>
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="curso.html" class="active">Curso</a>
+        <a href="materiais.html">Materiais</a>
+        <a href="sobre.html">Sobre</a>
+    </nav>
 
-            <h1>
-                Sua jornada musical
-                <span>começa aqui.</span>
-            </h1>
+</header>
 
-            <p class="question">
-                Como podemos chamar você?
-            </p>
 
-            <input
-                type="text"
-                id="userName"
-                placeholder="Digite seu nome"
-                maxlength="30"
-            >
+<main>
 
-            <button onclick="startJourney()">
-                COMEÇAR →
-            </button>
+    <!-- ================================
+         HERO
+    ================================= -->
 
-            <p class="error" id="error">
-                Digite seu nome para continuar.
-            </p>
+    <section class="hero">
+
+        <div class="container">
+
+            <div class="hero-grid">
+
+                <div class="hero-content">
+
+                    <div class="eyebrow">
+                        SUA JORNADA MUSICAL
+                    </div>
+
+                    <h1>
+                        Aprenda.<br>
+                        Pratique.<br>
+                        <span>Evolua.</span>
+                    </h1>
+
+                    <p class="greeting">
+                        Bem-vindo,
+                        <strong id="studentName">estudante</strong>.
+                        <br>
+                        Continue sua jornada e domine
+                        a linguagem da música.
+                    </p>
+
+                </div>
+
+
+                <div class="level-card">
+
+                    <div class="level-top">
+
+                        <div>
+                            <div class="level-label">
+                                SEU NÍVEL
+                            </div>
+
+                            <div class="level-name">
+                                Iniciante
+                            </div>
+                        </div>
+
+                        <div class="level-number">
+                            01
+                        </div>
+
+                    </div>
+
+
+                    <div class="level-bottom">
+
+                        <div class="level-progress">
+                            <span id="levelProgress"></span>
+                        </div>
+
+                        <div class="level-info">
+                            <span id="lessonProgress">
+                                0 / 50 AULAS
+                            </span>
+
+                            <span>
+                                NÍVEL 01
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="stats">
+
+                <div class="stat">
+                    <div class="stat-value" id="xpValue">
+                        0
+                    </div>
+
+                    <div class="stat-label">
+                        XP TOTAL
+                    </div>
+                </div>
+
+
+                <div class="stat">
+                    <div class="stat-value" id="starsValue">
+                        0
+                    </div>
+
+                    <div class="stat-label">
+                        ESTRELAS
+                    </div>
+                </div>
+
+
+                <div class="stat">
+                    <div class="stat-value" id="completedValue">
+                        0
+                    </div>
+
+                    <div class="stat-label">
+                        AULAS CONCLUÍDAS
+                    </div>
+                </div>
+
+            </div>
 
         </div>
 
-    </main>
+    </section>
 
 
-    <div class="footer">
-        TEORIA DE ELITE © 2026
-    </div>
+    <!-- ================================
+         CONTINUE
+    ================================= -->
+
+    <section class="continue-section">
+
+        <div class="container">
+
+            <div class="section-label">
+                CONTINUE DE ONDE PAROU
+            </div>
 
 
-    <script>
+            <a href="aula-01.html" class="continue-card">
 
-        function startJourney() {
+                <div class="continue-number">
+                    01
+                </div>
 
-            const name = document.getElementById("userName").value.trim();
 
-            if (name === "") {
+                <div>
 
-                document.getElementById("error").style.display = "block";
+                    <div class="continue-tag">
+                        AULA 01 • FUNDAMENTOS
+                    </div>
 
-                return;
-            }
+                    <h2>
+                        O que é música?
+                    </h2>
 
-            localStorage.setItem("userName", name);
+                    <p>
+                        Aprenda os primeiros fundamentos
+                        da linguagem musical.
+                    </p>
 
-            window.location.href = "curso.html";
-        }
+                </div>
 
-    </script>
 
-</body>
+                <div class="continue-button">
+                    COMEÇAR →
+                </div>
 
-</html>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================
+         TRILHA COMPLETA
+    ================================= -->
+
+    <section class="path-section">
+
+        <div class="container">
+
+            <div class="path-header">
+
+                <div>
+
+                    <div class="section-label">
+                        TRILHA COMPLETA
+                    </div>
+
+                    <h2>
+                        50 aulas.<br>
+                        Uma jornada.
+                    </h2>
+
+                </div>
+
+                <p>
+                    Todas as etapas da Teoria de Elite
+                    estão visíveis aqui. Conforme o curso
