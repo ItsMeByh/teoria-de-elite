@@ -793,3 +793,142 @@ progress + "%";
 
 </body>
 </html>
+/* =====================================
+   ENTRADA CINEMATOGRÁFICA
+===================================== */
+
+.cinematic-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 70% 45%,
+            #252525 0%,
+            #101010 35%,
+            #050505 75%
+        );
+
+    overflow: hidden;
+}
+
+.cinematic-intro::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.03),
+            transparent 40%,
+            rgba(255,255,255,0.02)
+        );
+
+    pointer-events: none;
+}
+
+.intro-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(900px, 86%);
+
+    text-align: left;
+
+    animation: introAppear 1.2s ease forwards;
+}
+
+.intro-small {
+    margin-bottom: 25px;
+
+    color: #777;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    letter-spacing: 5px;
+}
+
+.intro-content h1 {
+    margin: 0 0 25px;
+
+    font-size: clamp(48px, 8vw, 100px);
+    line-height: 0.9;
+
+    letter-spacing: -6px;
+}
+
+.intro-content h1 span {
+    color: #666;
+}
+
+.intro-content p {
+    margin-bottom: 40px;
+
+    color: #777;
+
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.intro-content button {
+    padding: 17px 28px;
+
+    border: 1px solid #444;
+
+    background: #fff;
+    color: #000;
+
+    font-size: 10px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.intro-content button:hover {
+    background: #ccc;
+    transform: translateX(6px);
+}
+
+@keyframes introAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* CELULAR */
+
+@media (max-width: 800px) {
+
+    .intro-content {
+        width: calc(100% - 40px);
+    }
+
+    .intro-content h1 {
+        font-size: 52px;
+        letter-spacing: -4px;
+    }
+
+    .intro-content p {
+        font-size: 13px;
+    }
+
+}
