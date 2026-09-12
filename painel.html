@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel | Teoria de Elite</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #050505;
+    --panel: #0d0d0d;
+    --line: #252525;
+    --text: #f3f0ea;
+    --muted: #858585;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at 80% 0%, #191919 0%, transparent 35%),
+        var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+.container {
+    width: min(1180px, calc(100% - 40px));
+    margin: auto;
+}
+
+/* HEADER */
+
+header {
+    height: 78px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(5, 5, 5, 0.92);
+    backdrop-filter: blur(15px);
+}
+
+.header-inner {
+    width: min(1180px, calc(100% - 40px));
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 4px;
+}
+
+nav {
+    display: flex;
+    gap: 28px;
+}
+
+nav a {
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: 0.25s;
+}
+
+nav a:hover,
+nav a.active {
+    color: white;
+}
+
+/* HERO */
+
+.hero {
+    padding: 75px 0 45px;
+    display: grid;
+    grid-template-columns: 1.4fr 0.6fr;
+    gap: 40px;
+    align-items: end;
+}
+
+.eyebrow {
+    color: #777;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 76px);
+    line-height: 0.95;
+    letter-spacing: -4px;
+    max-width: 800px;
+}
+
+.hero h1 span {
+    color: #666;
+}
+
+.hero-text {
+    color: var(--muted);
+    margin-top: 24px;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.level-card {
+    border: 1px solid var(--line);
+    background: linear-gradient(145deg, #151515, #090909);
+    padding: 25px;
+}
+
+.level-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.level-label {
+    color: #777;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.level-number {
+    font-size: 34px;
+    font-weight: 800;
+}
+
+.progress-track {
+    width: 100%;
+    height: 4px;
+    background: #262626;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 18%;
+    background: white;
+}
+
+.level-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    color: #666;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+/* STATS */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin: 10px 0 55px;
+}
+
+.stat {
+    background: var(--panel);
+    padding: 25px;
+}
+
+.stat-number {
+    font-size: 29px;
+    font-weight: 800;
+    margin-bottom: 7px;
+}
+
+.stat-name {
+    color: #666;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* SECTION */
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 20px;
+}
+
+.section-heading h2 {
+    font-size: 25px;
+    letter-spacing: -1px;
+}
+
+.section-heading p {
+    color: #666;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+/* CONTINUE */
+
+.continue {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #303030;
+    background:
+        radial-gradient(circle at 90% 50%, #242424 0%, transparent 42%),
+        #0c0c0c;
+    padding: 34px;
+    margin-bottom: 65px;
+}
+
+.continue::after {
+    content: "01";
+    position: absolute;
+    right: 30px;
+    top: 12px;
+    color: #181818;
+    font-size: 130px;
+    font-weight: 900;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.continue-content {
+    position: relative;
+    z-index: 2;
+}
+
+.lesson-tag {
+    color: #777;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 13px;
+}
+
+.continue h3 {
+    font-size: 30px;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+}
+
+.continue p {
+    color: #777;
+    font-size: 13px;
+    line-height: 1.7;
+    max-width: 560px;
+}
+
+.main-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 25px;
+    margin-top: 25px;
+    background: white;
+    color: black;
+    padding: 16px 21px;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: 0.25s;
+}
+
+.main-button span {
+    font-size: 17px;
+}
+
+.main-button:hover {
+    transform: translateX(7px);
+    background: #d5d5d5;
+}
+
+/* MODULES */
+
+.modules {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 65px;
+}
+
+.module {
+    border: 1px solid var(--line);
+    background: var(--panel);
+    padding: 25px;
+    transition: 0.25s;
+}
+
+.module:hover {
+    border-color: #444;
+    transform: translateY(-2px);
+}
+
+.module-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.module-number {
+    color: #555;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.module-status {
+    color: #555;
+    font-size: 8px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.module h3 {
+    font-size: 21px;
+    margin-bottom: 9px;
+}
+
+.module p {
+    color: #6f6f6f;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.module-progress {
+    margin-top: 22px;
+}
+
+.module-progress-track {
+    height: 3px;
+    background: #242424;
+}
+
+.module-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #ddd;
+}
+
+.module-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    color: #555;
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+/* ACHIEVEMENTS */
+
+.bottom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 70px;
+}
+
+.info-card {
+    border: 1px solid var(--line);
+    background: var(--panel);
+    padding: 28px;
+}
+
+.info-card h3 {
+    font-size: 19px;
+    margin-bottom: 20px;
+}
+
+.achievement {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 15px 0;
+    border-top: 1px solid #1f1f1f;
+}
+
+.achievement-icon {
+    width: 42px;
+    height: 42px;
+    border: 1px solid #333;
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+}
+
+.achievement strong {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.achievement small {
+    color: #666;
+    font-size: 10px;
+}
+
+/* QUICK LINKS */
+
+.quick-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.quick {
+    border: 1px solid #222;
+    padding: 16px;
+    color: #888;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: 0.2s;
+}
+
+.quick:hover {
+    color: white;
+    border-color: #444;
+}
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid var(--line);
+    padding: 28px 0;
+    color: #444;
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .container,
+    .header-inner {
+        width: calc(100% - 28px);
+    }
+
+    header {
+        height: 68px;
+    }
+
+    .logo {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    nav {
+        gap: 13px;
+    }
+
+    nav a {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 55px 0 35px;
+        gap: 30px;
+    }
+
+    .hero h1 {
+        font-size: 47px;
+        letter-spacing: -3px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+        margin-bottom: 45px;
+    }
+
+    .stat {
+        padding: 20px;
+    }
+
+    .continue {
+        padding: 25px;
+        margin-bottom: 50px;
+    }
+
+    .continue h3 {
+        font-size: 25px;
+    }
+
+    .modules,
+    .bottom-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-links {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 430px) {
+
+    nav {
+        gap: 9px;
+    }
+
+    nav a {
+        font-size: 7px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .eyebrow {
+        letter-spacing: 3px;
+    }
+
+    .continue::after {
+        font-size: 90px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-inner">
+
+        <a class="logo" href="index.html">
+            TEORIA DE ELITE
+        </a>
+
+        <nav>
+            <a href="index.html">INÍCIO</a>
+            <a href="painel.html" class="active">CURSO</a>
+            <a href="materiais.html">MATERIAIS</a>
+            <a href="sobre.html">SOBRE</a>
+        </nav>
+
+    </div>
+</header>
+
+<main>
+
+<section class="hero container">
+
+    <div>
+
+        <div class="eyebrow">
+            PAINEL DO ALUNO
+        </div>
+
+        <h1>
+            APRENDA.<br>
+            <span>PRATIQUE. EVOLUA.</span>
+        </h1>
+
+        <p class="hero-text">
+            <span id="greeting">Bem-vindo</span>
+            à sua jornada.
+            Continue de onde parou e construa sua base musical.
+        </p>
+
+    </div>
+
+    <div class="level-card">
+
+        <div class="level-top">
+
+            <div class="level-label">
+                SEU NÍVEL
+            </div>
+
+            <div class="level-number">
+                01
+            </div>
+
+        </div>
+
+        <div class="progress-track">
+            <div
+                class="progress-fill"
+                id="mainProgress">
+            </div>
+        </div>
+
+        <div class="level-bottom">
+
+            <span id="lessonProgress">
+                0 / 50 AULAS
+            </span>
+
+            <span id="progressPercent">
+                0%
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="container stats">
+
+    <div class="stat">
+
+        <div
+            class="stat-number"
+            id="xp">
+            0
+        </div>
+
+        <div class="stat-name">
+            XP TOTAL
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div
+            class="stat-number"
+            id="stars">
+            0
+        </div>
+
+        <div class="stat-name">
+            ESTRELAS
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div
+            class="stat-number"
+            id="completed">
+            0
+        </div>
+
+        <div class="stat-name">
+            AULAS CONCLUÍDAS
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="container">
+
+    <div class="section-heading">
+
+        <div>
+
+            <div class="eyebrow">
+                CONTINUE SUA JORNADA
+            </div>
+
+            <h2>
+                Próxima aula
+            </h2>
+
+        </div>
+
+        <p>
+            50 AULAS
+        </p>
+
+    </div>
+
+
+    <div class="continue">
+
+        <div class="continue-content">
+
+            <div class="lesson-tag">
+                AULA 01 · FUNDAMENTOS
+            </div>
+
+            <h3>
+                Som, Silêncio e Tempo
+            </h3>
+
+            <p>
+                Comece entendendo os três elementos fundamentais
+                para enxergar a música de uma nova maneira.
+            </p>
+
+            <a
+                class="main-button"
+                href="aula-01.html">
+
+                CONTINUAR AULA
+
+                <span>
+                    →
+                </span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="container">
+
+    <div class="section-heading">
+
+        <div>
+
+            <div class="eyebrow">
+                TRILHA DE APRENDIZADO
+            </div>
+
+            <h2>
+                Seu caminho
+            </h2>
+
+        </div>
+
+        <p>
+            PROGRESSO
+        </p>
+
+    </div>
+
+
+    <div class="modules">
+
+
+        <article class="module">
+
+            <div class="module-top">
+
+                <span class="module-number">
+                    MÓDULO 01
+                </span>
+
+                <span class="module-status">
+                    EM ANDAMENTO
+                </span>
+
+            </div>
+
+            <h3>
+                Fundamentos
+            </h3>
+
+            <p>
+                Os primeiros conceitos para construir
+                uma base musical sólida.
+            </p>
+
+            <div class="module-progress">
+
+                <div class="module-progress-track">
+
+                    <div
+                        class="module-progress-fill"
+                        id="module1Progress">
+                    </div>
+
+                </div>
+
+                <div class="module-bottom">
+
+                    <span id="module1Text">
+                        0 / 10 AULAS
+                    </span>
+
+                    <span>
+                        INICIADO
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <article class="module">
+
+            <div class="module-top">
+
+                <span class="module-number">
+                    MÓDULO 02
+                </span>
+
+                <span class="module-status">
+                    BLOQUEADO
+                </span>
+
+            </div>
+
+            <h3>
+                Ritmo
+            </h3>
+
+            <p>
+                Pulso, divisão, andamento e a estrutura
+                rítmica da música.
+            </p>
+
+            <div class="module-progress">
+
+                <div class="module-progress-track">
+
+                    <div class="module-progress-fill">
+                    </div>
+
+                </div>
+
+                <div class="module-bottom">
+
+                    <span>
+                        0 / 10 AULAS
+                    </span>
+
+                    <span>
+                        EM BREVE
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <article class="module">
+
+            <div class="module-top">
+
+                <span class="module-number">
+                    MÓDULO 03
+                </span>
+
+                <span class="module-status">
+                    BLOQUEADO
+                </span>
+
+            </div>
+
+            <h3>
+                Notas e Escalas
+            </h3>
+
+            <p>
+                Descubra a organização das notas e como
+                as escalas dão identidade à música.
+            </p>
+
+            <div class="module-progress">
+
+                <div class="module-progress-track">
+
+                    <div class="module-progress-fill">
+                    </div>
+
+                </div>
+
+                <div class="module-bottom">
+
+                    <span>
+                        0 / 10 AULAS
+                    </span>
+
+                    <span>
+                        EM BREVE
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <article class="module">
+
+            <div class="module-top">
+
+                <span class="module-number">
+                    MÓDULO 04
+                </span>
+
+                <span class="module-status">
+                    BLOQUEADO
+                </span>
+
+            </div>
+
+            <h3>
+                Harmonia
+            </h3>
+
+            <p>
+                A relação entre acordes, progressões e
+                as bases que sustentam uma composição.
+            </p>
+
+            <div class="module-progress">
+
+                <div class="module-progress-track">
+
+                    <div class="module-progress-fill">
+                    </div>
+
+                </div>
+
+                <div class="module-bottom">
+
+                    <span>
+                        0 / 10 AULAS
+                    </span>
+
+                    <span>
+                        EM BREVE
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <article class="module">
+
+            <div class="module-top">
+
+                <span class="module-number">
+                    MÓDULO 05
+                </span>
+
+                <span class="module-status">
+                    BLOQUEADO
+                </span>
+
+            </div>
+
+            <h3>
+                Aplicação Musical
+            </h3>
+
+            <p>
+                Transforme o conhecimento em prática,
+                percepção e criação.
+            </p>
+
+            <div class="module-progress">
+
+                <div class="module-progress-track">
+
+                    <div class="module-progress-fill">
+                    </div>
+
+                </div>
+
+                <div class="module-bottom">
+
+                    <span>
+                        0 / 10 AULAS
+                    </span>
+
+                    <span>
+                        EM BREVE
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<section class="container bottom-grid">
+
+
+    <div class="info-card">
+
+        <div class="eyebrow">
+            CONQUISTAS
+        </div>
+
+        <h3>
+            Marcos da jornada
+        </h3>
+
+
+        <div class="achievement">
+
+            <div class="achievement-icon">
+                ★
+            </div>
+
+            <div>
+
+                <strong>
+                    Primeiro passo
+                </strong>
+
+                <small>
+                    Conclua sua primeira aula.
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="achievement">
+
+            <div class="achievement-icon">
+                ✦
+            </div>
+
+            <div>
+
+                <strong>
+                    Em evolução
+                </strong>
+
+                <small>
+                    Alcance 5 aulas concluídas.
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="achievement">
+
+            <div class="achievement-icon">
+                ◆
+            </div>
+
+            <div>
+
+                <strong>
+                    Teoria de Elite
+                </strong>
+
+                <small>
+                    Complete o curso inteiro.
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="info-card">
+
+        <div class="eyebrow">
+            ACESSO RÁPIDO
+        </div>
+
+        <h3>
+            Explore
+        </h3>
+
+        <div class="quick-links">
+
+            <a
+                class="quick"
+                href="aula-01.html">
+                AULA 01 →
+            </a>
+
+            <a
+                class="quick"
+                href="materiais.html">
+                MATERIAIS →
+            </a>
+
+            <a
+                class="quick"
+                href="sobre.html">
+                SOBRE O CURSO →
+            </a>
+
+            <a
+                class="quick"
+                href="index.html">
+                INÍCIO →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+    TEORIA DE ELITE · APRENDA · PRATIQUE · EVOLUA
+</footer>
+
+
+<script>
+
+function getNumber(key) {
+
+    return Number(
+        localStorage.getItem(key)
+    ) || 0;
+
+}
+
+
+const name =
+    localStorage.getItem("userName");
+
+
+if (name) {
+
+    document.getElementById(
+        "greeting"
+    ).textContent =
+        "Olá, " + name;
+
+}
+
+
+const xp =
+    getNumber("totalXP");
+
+const stars =
+    getNumber("stars");
+
+const completed =
+    getNumber("completedLessons");
+
+
+document.getElementById(
+    "xp"
+).textContent = xp;
+
+
+document.getElementById(
+    "stars"
+).textContent = stars;
+
+
+document.getElementById(
+    "completed"
+).textContent = completed;
+
+
+const percentage =
+    Math.min(
+        Math.round(
+            (completed / 50) * 100
+        ),
+        100
+    );
+
+
+document.getElementById(
+    "mainProgress"
+).style.width =
+    percentage + "%";
+
+
+document.getElementById(
+    "lessonProgress"
+).textContent =
+    completed + " / 50 AULAS";
+
+
+document.getElementById(
+    "progressPercent"
+).textContent =
+    percentage + "%";
+
+
+const module1 =
+    Math.min(completed, 10);
+
+
+const module1Percentage =
+    Math.round(
+        (module1 / 10) * 100
+    );
+
+
+document.getEl
