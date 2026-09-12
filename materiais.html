@@ -1,171 +1,662 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Materiais | Teoria de Elite</title>
+  <title>Materiais | Teoria de Elite</title>
 
-    <link rel="stylesheet" href="css/style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 80% 10%, rgba(255,255,255,0.07), transparent 28%),
+        radial-gradient(circle at 10% 40%, rgba(255,255,255,0.04), transparent 25%),
+        #070707;
+      color: #f5f5f5;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* HEADER */
+
+    header {
+      width: 100%;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(7,7,7,0.82);
+      backdrop-filter: blur(15px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav {
+      max-width: 1150px;
+      margin: auto;
+      padding: 20px 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: #888;
+    }
+
+    .links {
+      display: flex;
+      gap: 28px;
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    .links a {
+      transition: 0.25s;
+    }
+
+    .links a:hover,
+    .links .active {
+      color: #fff;
+    }
+
+    /* CONTAINER */
+
+    .container {
+      max-width: 1150px;
+      margin: auto;
+      padding: 0 25px;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 430px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "♪";
+      position: absolute;
+      right: 5%;
+      top: 10%;
+      font-size: 260px;
+      font-weight: 900;
+      color: rgba(255,255,255,0.025);
+      transform: rotate(-12deg);
+      pointer-events: none;
+    }
+
+    .tag {
+      display: inline-block;
+      width: fit-content;
+      padding: 8px 13px;
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 100px;
+      color: #aaa;
+      font-size: 11px;
+      letter-spacing: 2px;
+      margin-bottom: 22px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 0.98;
+      letter-spacing: -3px;
+      max-width: 800px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: #777;
+    }
+
+    .hero p {
+      max-width: 590px;
+      color: #999;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    /* CATEGORIAS */
+
+    .section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      margin-bottom: 28px;
+    }
+
+    .section-title small {
+      display: block;
+      color: #777;
+      font-size: 11px;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .section-title h2 {
+      font-size: 32px;
+      letter-spacing: -1px;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .category {
+      padding: 22px 18px;
+      min-height: 110px;
+      border: 1px solid rgba(255,255,255,0.09);
+      background: rgba(255,255,255,0.025);
+      border-radius: 15px;
+      transition: 0.3s;
+    }
+
+    .category:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,0.055);
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .category-icon {
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .category strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .category span {
+      color: #777;
+      font-size: 11px;
+    }
+
+    /* MATERIAIS */
+
+    .materials {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .material {
+      position: relative;
+      padding: 30px;
+      min-height: 220px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.09);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.055), rgba(255,255,255,0.015));
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .material:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    .material::after {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      right: -50px;
+      bottom: -60px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.035);
+    }
+
+    .material-number {
+      color: #666;
+      font-size: 11px;
+      letter-spacing: 2px;
+      margin-bottom: 22px;
+    }
+
+    .material h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .material p {
+      color: #888;
+      font-size: 13px;
+      line-height: 1.6;
+      max-width: 430px;
+    }
+
+    .material-bottom {
+      margin-top: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .type {
+      color: #666;
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 15px;
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 9px;
+      font-size: 11px;
+      transition: 0.25s;
+    }
+
+    .button:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    /* CTA */
+
+    .cta {
+      margin: 30px 0 80px;
+      padding: 45px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background:
+        radial-gradient(circle at 90% 20%, rgba(255,255,255,0.08), transparent 30%),
+        rgba(255,255,255,0.025);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .cta h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .cta p {
+      color: #888;
+      font-size: 13px;
+    }
+
+    .cta-button {
+      background: #fff;
+      color: #000;
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: 0.25s;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 28px 25px;
+      text-align: center;
+      color: #555;
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      .nav {
+        padding: 17px 18px;
+      }
+
+      .links {
+        gap: 14px;
+        font-size: 11px;
+      }
+
+      .container {
+        padding: 0 18px;
+      }
+
+      .hero {
+        min-height: 390px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+        letter-spacing: -2px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      .categories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .categories .category:last-child {
+        grid-column: span 2;
+      }
+
+      .materials {
+        grid-template-columns: 1fr;
+      }
+
+      .material {
+        min-height: 200px;
+        padding: 25px;
+      }
+
+      .cta {
+        padding: 30px 25px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .logo {
+        font-size: 13px;
+      }
+
+      .links {
+        gap: 10px;
+      }
+
+      .links a:nth-child(1) {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .categories {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .section {
+        padding: 50px 0;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <header>
+  <!-- HEADER -->
 
-        <div class="logo">
-            TEORIA DE ELITE
+  <header>
+    <nav class="nav">
+
+      <a href="index.html" class="logo">
+        TEORIA <span>DE ELITE</span>
+      </a>
+
+      <div class="links">
+        <a href="index.html">Início</a>
+        <a href="curso.html">Curso</a>
+        <a href="materiais.html" class="active">Materiais</a>
+        <a href="sobre.html">Sobre</a>
+      </div>
+
+    </nav>
+  </header>
+
+
+  <!-- HERO -->
+
+  <main>
+
+    <section class="hero container">
+
+      <div class="tag">
+        Biblioteca de conhecimento
+      </div>
+
+      <h1>
+        Recursos para<br>
+        sua <span>evolução.</span>
+      </h1>
+
+      <p>
+        Acesse materiais complementares para reforçar seus estudos,
+        revisar conceitos e acelerar sua evolução musical.
+      </p>
+
+    </section>
+
+
+    <!-- CATEGORIAS -->
+
+    <section class="section container">
+
+      <div class="section-title">
+        <small>Explore</small>
+        <h2>Categorias</h2>
+      </div>
+
+      <div class="categories">
+
+        <a href="#resumos" class="category">
+          <div class="category-icon">▤</div>
+          <strong>Resumos</strong>
+          <span>Conteúdo direto ao ponto</span>
+        </a>
+
+        <a href="#conceitos" class="category">
+          <div class="category-icon">◈</div>
+          <strong>Conceitos</strong>
+          <span>Fundamentos da música</span>
+        </a>
+
+        <a href="#exercicios" class="category">
+          <div class="category-icon">⌁</div>
+          <strong>Exercícios</strong>
+          <span>Pratique o que aprendeu</span>
+        </a>
+
+        <a href="#desafios" class="category">
+          <div class="category-icon">◆</div>
+          <strong>Desafios</strong>
+          <span>Teste seus conhecimentos</span>
+        </a>
+
+        <a href="#glossario" class="category">
+          <div class="category-icon">Aa</div>
+          <strong>Glossário</strong>
+          <span>Termos musicais</span>
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- MATERIAIS -->
+
+    <section class="section container" id="resumos">
+
+      <div class="section-title">
+        <small>Biblioteca</small>
+        <h2>Materiais em destaque</h2>
+      </div>
+
+      <div class="materials">
+
+        <article class="material" id="conceitos">
+
+          <div class="material-number">
+            MATERIAL 01
+          </div>
+
+          <h3>Fundamentos da Música</h3>
+
+          <p>
+            Um resumo dos principais fundamentos para entender
+            como a música funciona e construir uma base sólida.
+          </p>
+
+          <div class="material-bottom">
+            <span class="type">RESUMO</span>
+
+            <a href="#" class="button">
+              Em breve →
+            </a>
+          </div>
+
+        </article>
+
+
+        <article class="material" id="exercicios">
+
+          <div class="material-number">
+            MATERIAL 02
+          </div>
+
+          <h3>Exercícios de Ritmo</h3>
+
+          <p>
+            Exercícios para desenvolver sua percepção rítmica
+            e colocar em prática os conceitos aprendidos.
+          </p>
+
+          <div class="material-bottom">
+            <span class="type">EXERCÍCIOS</span>
+
+            <a href="#" class="button">
+              Em breve →
+            </a>
+          </div>
+
+        </article>
+
+
+        <article class="material" id="desafios">
+
+          <div class="material-number">
+            MATERIAL 03
+          </div>
+
+          <h3>Desafio Musical #01</h3>
+
+          <p>
+            Um desafio para testar seus conhecimentos e descobrir
+            quanto você já evoluiu durante sua jornada.
+          </p>
+
+          <div class="material-bottom">
+            <span class="type">DESAFIO</span>
+
+            <a href="#" class="button">
+              Em breve →
+            </a>
+          </div>
+
+        </article>
+
+
+        <article class="material" id="glossario">
+
+          <div class="material-number">
+            MATERIAL 04
+          </div>
+
+          <h3>Glossário Musical</h3>
+
+          <p>
+            Consulte termos e conceitos importantes utilizados
+            durante as aulas da Teoria de Elite.
+          </p>
+
+          <div class="material-bottom">
+            <span class="type">GLOSSÁRIO</span>
+
+            <a href="#" class="button">
+              Em breve →
+            </a>
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="container">
+
+      <div class="cta">
+
+        <div>
+          <h2>Continue sua jornada.</h2>
+
+          <p>
+            Volte para o curso e continue aprendendo.
+          </p>
         </div>
 
-        <nav>
-            <a href="index.html">Início</a>
-            <a href="curso.html">Curso</a>
-            <a href="materiais.html">Materiais</a>
-            <a href="sobre.html">Sobre</a>
-        </nav>
+        <a href="curso.html" class="cta-button">
+          IR PARA O CURSO →
+        </a>
 
-    </header>
+      </div>
 
-    <main>
+    </section>
 
-        <section class="course-hero">
-
-            <p class="tag">TEORIA DE ELITE</p>
-
-            <h1>
-                Materiais para
-                <span>evoluir.</span>
-            </h1>
-
-            <p>
-                Acesse materiais complementares para
-                reforçar seus estudos e desenvolver
-                ainda mais seu conhecimento musical.
-            </p>
-
-        </section>
+  </main>
 
 
-        <section class="modules">
+  <!-- FOOTER -->
 
-            <p class="tag">BIBLIOTECA</p>
+  <footer>
+    TEORIA DE ELITE · APRENDA · PRATIQUE · EVOLUA
+  </footer>
 
-            <h2>
-                Seus materiais.
-            </h2>
-
-            <div class="module-list">
-
-                <a href="#" class="module">
-
-                    <div class="module-number">
-                        01
-                    </div>
-
-                    <div class="module-info">
-
-                        <h3>
-                            Apostila de Teoria Musical
-                        </h3>
-
-                        <p>
-                            Material de apoio para acompanhar
-                            os principais conceitos do curso.
-                        </p>
-
-                    </div>
-
-                    <div class="module-arrow">
-                        →
-                    </div>
-
-                </a>
-
-
-                <a href="#" class="module">
-
-                    <div class="module-number">
-                        02
-                    </div>
-
-                    <div class="module-info">
-
-                        <h3>
-                            Exercícios de Fixação
-                        </h3>
-
-                        <p>
-                            Pratique os conceitos estudados
-                            através de exercícios.
-                        </p>
-
-                    </div>
-
-                    <div class="module-arrow">
-                        →
-                    </div>
-
-                </a>
-
-
-                <a href="#" class="module">
-
-                    <div class="module-number">
-                        03
-                    </div>
-
-                    <div class="module-info">
-
-                        <h3>
-                            Resumos
-                        </h3>
-
-                        <p>
-                            Revisões rápidas para facilitar
-                            seus estudos e sua memorização.
-                        </p>
-
-                    </div>
-
-                    <div class="module-arrow">
-                        →
-                    </div>
-
-                </a>
-
-
-                <a href="#" class="module">
-
-                    <div class="module-number">
-                        04
-                    </div>
-
-                    <div class="module-info">
-
-                        <h3>
-                            Materiais Extras
-                        </h3>
-
-                        <p>
-                            Conteúdos complementares para
-                            aprofundar sua formação musical.
-                        </p>
-
-                    </div>
-
-                    <div class="module-arrow">
-                        →
-                    </div>
-
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <section class="course-cta">
-
-            <p class="tag">
-                CONTINUE SUA
+</body>
+</html>
