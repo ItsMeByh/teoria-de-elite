@@ -575,7 +575,51 @@ document.getElementById(
     "progressText"
 ).textContent =
     percentage + "%";
+/* AULAS CONCLUÍDAS */
 
+const lessons =
+    document.querySelectorAll(".lesson");
+
+lessons.forEach(function(lesson) {
+
+    const numberElement =
+        lesson.querySelector(".lesson-number");
+
+    if (!numberElement) return;
+
+    const numero =
+        numberElement.textContent
+        .trim()
+        .replace("AULA ", "")
+        .padStart(2, "0");
+
+    const chave =
+        "aula" + numero + "Concluida";
+
+    if (localStorage.getItem(chave) === "true") {
+
+        const button =
+            lesson.querySelector(".lesson-button");
+
+        if (button) {
+
+            button.textContent =
+                "✓ AULA CONCLUÍDA";
+
+            button.style.background =
+                "#222";
+
+            button.style.color =
+                "#aaa";
+
+            button.style.pointerEvents =
+                "none";
+
+        }
+
+    }
+
+});
 </script>
 
 </body>
