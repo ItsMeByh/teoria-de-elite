@@ -620,10 +620,10 @@ lessons.forEach(function(lesson) {
     }
 
 });
-const aula01Concluida =
-    localStorage.getItem("aula01Concluida") === "true";
+const aulasConcluidas =
+    Number(localStorage.getItem("completedLessons")) || 0;
 
-if (aula01Concluida) {
+if (aulasConcluidas >= 1) {
 
     const aula01 =
         document.querySelector(".lesson:not(.locked)");
@@ -635,15 +635,13 @@ if (aula01Concluida) {
 
         if (botao) {
 
-            botao.textContent =
-                "✓ AULA CONCLUÍDA";
+            botao.textContent = "✓ AULA CONCLUÍDA";
 
             botao.removeAttribute("href");
 
             botao.style.background = "#222";
             botao.style.color = "#aaa";
             botao.style.pointerEvents = "none";
-
         }
     }
 }
