@@ -625,27 +625,25 @@ const aula01Concluida =
 
 if (aula01Concluida) {
 
-    const botaoAula01 =
-        document.querySelector('a[href="aula-01.html"]');
+    const aula01 =
+        document.querySelector(".lesson:not(.locked)");
 
-    if (botaoAula01) {
+    if (aula01) {
 
-        botaoAula01.textContent =
-            "✓ AULA CONCLUÍDA";
+        const botao =
+            aula01.querySelector(".lesson-button");
 
-        botaoAula01.removeAttribute("href");
+        if (botao) {
 
-        botaoAula01.style.background =
-            "#222";
+            botao.textContent =
+                "✓ AULA CONCLUÍDA";
 
-        botaoAula01.style.color =
-            "#aaa";
+            botao.removeAttribute("href");
 
-        botaoAula01.style.pointerEvents =
-            "none";
+            botao.style.background = "#222";
+            botao.style.color = "#aaa";
+            botao.style.pointerEvents = "none";
+
+        }
     }
 }
-</script>
-
-</body>
-</html>
