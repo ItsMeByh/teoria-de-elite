@@ -620,6 +620,37 @@ lessons.forEach(function(lesson) {
     }
 
 });
+const aula01Concluida =
+    localStorage.getItem("aula01Concluida") === "true";
+
+if (aula01Concluida) {
+
+    const aula01 =
+        document.querySelector(".lesson:not(.locked)");
+
+    if (aula01) {
+
+        const botao =
+            aula01.querySelector(".lesson-button");
+
+        if (botao) {
+
+            botao.textContent =
+                "✓ AULA CONCLUÍDA";
+
+            botao.removeAttribute("href");
+
+            botao.style.background =
+                "#222";
+
+            botao.style.color =
+                "#aaa";
+
+            botao.style.pointerEvents =
+                "none";
+        }
+    }
+}
 </script>
 
 </body>
