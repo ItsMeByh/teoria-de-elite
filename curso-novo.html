@@ -1,647 +1,888 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Curso | Teoria de Elite</title>
+    <title>Curso | Teoria de Elite</title>
 
-<style>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-:root {
-    --preto: #050505;
-    --painel: #0d0d0d;
-    --linha: #252525;
-    --branco: #f5f5f5;
-    --cinza: #888;
-    --cinza-escuro: #555;
-}
+        body {
+            min-height: 100vh;
+            color: #f5f5f5;
+            font-family: Arial, Helvetica, sans-serif;
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: var(--preto);
-    color: var(--branco);
-    min-height: 100vh;
-}
+            background-image:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.72),
+                    rgba(0, 0, 0, 0.88)
+                ),
+                url("fundo-musical.png");
 
-a {
-    color: inherit;
-    text-decoration: none;
-}
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
 
-/* HEADER */
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-header {
-    height: 75px;
-    border-bottom: 1px solid var(--linha);
-    display: flex;
-    align-items: center;
-    background: rgba(5,5,5,.95);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
+        button {
+            font-family: inherit;
+        }
 
-.header-inner {
-    width: min(1150px, calc(100% - 35px));
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        /* =========================
+           HEADER
+        ========================= */
 
-.logo {
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 4px;
-}
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
 
-nav {
-    display: flex;
-    gap: 25px;
-}
+            border-bottom: 1px solid rgba(255,255,255,0.08);
 
-nav a {
-    font-size: 9px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    color: #777;
-}
+            background: rgba(5,5,5,0.82);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
 
-nav a:hover,
-nav a.active {
-    color: white;
-}
+        .header-inner {
+            width: min(1180px, 92%);
+            margin: auto;
 
-/* HERO */
+            min-height: 72px;
 
-.hero {
-    width: min(1150px, calc(100% - 35px));
-    margin: auto;
-    padding: 80px 0 55px;
-}
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
 
-.label {
-    color: #777;
-    font-size: 9px;
-    font-weight: bold;
-    letter-spacing: 5px;
-    margin-bottom: 20px;
-}
+        .logo {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
 
-.hero h1 {
-    font-size: clamp(45px, 7vw, 85px);
-    line-height: .9;
-    letter-spacing: -5px;
-    max-width: 850px;
-}
+        .logo span {
+            opacity: 0.55;
+            font-weight: 400;
+        }
 
-.hero h1 span {
-    color: #666;
-}
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
 
-.hero p {
-    color: #777;
-    max-width: 600px;
-    font-size: 14px;
-    line-height: 1.8;
-    margin-top: 28px;
-}
+        nav a {
+            font-size: 13px;
+            color: rgba(255,255,255,0.68);
+            transition: 0.25s;
+        }
 
-/* PROGRESS */
+        nav a:hover {
+            color: white;
+        }
 
-.progress-box {
-    width: min(1150px, calc(100% - 35px));
-    margin: auto;
-    border: 1px solid var(--linha);
-    background: var(--painel);
-    padding: 25px;
-}
+        /* =========================
+           CONTAINER
+        ========================= */
 
-.progress-top {
-    display: flex;
-    justify-content: space-between;
-    color: #777;
-    font-size: 9px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
-}
+        .container {
+            width: min(1100px, 92%);
+            margin: auto;
+        }
 
-.progress-track {
-    height: 4px;
-    background: #252525;
-}
+        /* =========================
+           HERO
+        ========================= */
 
-.progress-fill {
-    width: 0%;
-    height: 100%;
-    background: white;
-}
+        .hero {
+            padding: 85px 0 45px;
+            text-align: center;
+        }
 
-/* CURSO */
+        .eyebrow {
+            display: inline-block;
 
-.course {
-    width: min(1150px, calc(100% - 35px));
-    margin: 70px auto;
-}
+            margin-bottom: 18px;
 
-.course-title {
-    margin-bottom: 25px;
-}
+            padding: 8px 14px;
 
-.course-title h2 {
-    font-size: 28px;
-    letter-spacing: -1px;
-}
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 999px;
 
-.course-title p {
-    color: #666;
-    font-size: 10px;
-    letter-spacing: 2px;
-    margin-top: 8px;
-}
+            background: rgba(255,255,255,0.04);
 
-/* AULAS */
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.62);
+        }
 
-.lessons {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-}
+        .hero h1 {
+            font-size: clamp(38px, 7vw, 76px);
+            line-height: 0.95;
+            letter-spacing: -3px;
+            margin-bottom: 22px;
+        }
 
-.lesson {
-    border: 1px solid var(--linha);
-    background: var(--painel);
-    padding: 28px;
-    transition: .25s;
-}
+        .hero h1 span {
+            opacity: 0.45;
+        }
 
-.lesson:hover {
-    border-color: #444;
-    transform: translateY(-3px);
-}
+        .hero p {
+            max-width: 650px;
+            margin: auto;
 
-.lesson-number {
-    color: #555;
-    font-size: 9px;
-    font-weight: bold;
-    letter-spacing: 3px;
-    margin-bottom: 20px;
-}
+            color: rgba(255,255,255,0.65);
+            font-size: 16px;
+            line-height: 1.7;
+        }
 
-.lesson h3 {
-    font-size: 21px;
-    margin-bottom: 10px;
-}
+        /* =========================
+           PROGRESS
+        ========================= */
 
-.lesson p {
-    color: #707070;
-    font-size: 12px;
-    line-height: 1.7;
-}
+        .progress-card {
+            margin: 20px 0 60px;
+            padding: 25px;
 
-.lesson-button {
-    display: inline-flex;
-    margin-top: 22px;
-    padding: 13px 17px;
-    background: white;
-    color: black;
-    font-size: 8px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    transition: .2s;
-}
+            border: 1px solid rgba(255,255,255,0.10);
+            border-radius: 20px;
 
-.lesson-button:hover {
-    background: #ccc;
-    transform: translateX(5px);
-}
+            background: rgba(8,8,8,0.78);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
 
-.locked {
-    opacity: .45;
-}
+            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+        }
 
-.locked .lesson-button {
-    background: #222;
-    color: #666;
-    pointer-events: none;
-}
+        .progress-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
 
-/* FOOTER */
+            margin-bottom: 16px;
+        }
 
-footer {
-    border-top: 1px solid var(--linha);
-    text-align: center;
-    padding: 30px;
-    color: #444;
-    font-size: 8px;
-    letter-spacing: 3px;
-}
+        .progress-title {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
 
-/* MOBILE */
+        .progress-number {
+            font-size: 14px;
+            color: rgba(255,255,255,0.55);
+        }
 
-@media (max-width: 700px) {
+        .progress-track {
+            width: 100%;
+            height: 9px;
 
-    header {
-        height: 65px;
-    }
+            overflow: hidden;
 
-    .header-inner {
-        width: calc(100% - 25px);
-    }
+            border-radius: 999px;
+            background: rgba(255,255,255,0.08);
+        }
 
-    .logo {
-        font-size: 9px;
-        letter-spacing: 3px;
-    }
+        .progress-bar {
+            width: 0%;
+            height: 100%;
 
-    nav {
-        gap: 10px;
-    }
+            border-radius: inherit;
 
-    nav a {
-        font-size: 7px;
-        letter-spacing: 1px;
-    }
+            background: #f5f5f5;
 
-    .hero {
-        padding: 55px 0 40px;
-    }
+            transition: width 0.6s ease;
+        }
 
-    .hero h1 {
-        font-size: 48px;
-        letter-spacing: -3px;
-    }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
 
-    .lessons {
-        grid-template-columns: 1fr;
-    }
+            margin-top: 20px;
+        }
 
-}
+        .stat {
+            padding: 15px;
 
-</style>
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 14px;
+
+            background: rgba(255,255,255,0.025);
+        }
+
+        .stat strong {
+            display: block;
+
+            margin-bottom: 5px;
+
+            font-size: 21px;
+        }
+
+        .stat span {
+            font-size: 11px;
+            color: rgba(255,255,255,0.45);
+        }
+
+        /* =========================
+           MODULE
+        ========================= */
+
+        .module {
+            margin-bottom: 55px;
+        }
+
+        .module-heading {
+            margin-bottom: 22px;
+        }
+
+        .module-label {
+            margin-bottom: 7px;
+
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.38);
+        }
+
+        .module-heading h2 {
+            font-size: 28px;
+            letter-spacing: -1px;
+        }
+
+        .lessons {
+            display: grid;
+            gap: 12px;
+        }
+
+        /* =========================
+           LESSON
+        ========================= */
+
+        .lesson {
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            gap: 18px;
+
+            padding: 18px;
+
+            border: 1px solid rgba(255,255,255,0.09);
+            border-radius: 17px;
+
+            background: rgba(7,7,7,0.78);
+
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
+            transition:
+                transform 0.25s,
+                border-color 0.25s,
+                background 0.25s;
+        }
+
+        .lesson:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255,255,255,0.18);
+            background: rgba(15,15,15,0.88);
+        }
+
+        .lesson.locked {
+            opacity: 0.48;
+        }
+
+        .lesson.completed {
+            border-color: rgba(255,255,255,0.20);
+        }
+
+        .lesson-number {
+            flex-shrink: 0;
+
+            width: 58px;
+            height: 58px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid rgba(255,255,255,0.10);
+            border-radius: 15px;
+
+            background: rgba(255,255,255,0.04);
+
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .lesson.completed .lesson-number {
+            background: rgba(255,255,255,0.10);
+        }
+
+        .lesson-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .lesson-content h3 {
+            margin-bottom: 6px;
+
+            font-size: 17px;
+            line-height: 1.3;
+        }
+
+        .lesson-content p {
+            color: rgba(255,255,255,0.48);
+
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .lesson-status {
+            margin-top: 8px;
+
+            font-size: 10px;
+            letter-spacing: 1px;
+
+            color: rgba(255,255,255,0.38);
+        }
+
+        .lesson.completed .lesson-status {
+            color: rgba(255,255,255,0.75);
+        }
+
+        .lesson-button {
+            flex-shrink: 0;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-width: 145px;
+            padding: 12px 15px;
+
+            border: 1px solid rgba(255,255,255,0.13);
+            border-radius: 11px;
+
+            background: rgba(255,255,255,0.06);
+
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+
+            transition: 0.25s;
+        }
+
+        .lesson-button:hover {
+            background: rgba(255,255,255,0.12);
+        }
+
+        .lesson-button.completed-button {
+            color: rgba(255,255,255,0.45);
+            background: rgba(255,255,255,0.025);
+            cursor: default;
+        }
+
+        .locked-button {
+            color: rgba(255,255,255,0.25);
+            cursor: not-allowed;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            margin-top: 80px;
+            padding: 35px 0 45px;
+
+            border-top: 1px solid rgba(255,255,255,0.08);
+
+            text-align: center;
+
+            color: rgba(255,255,255,0.35);
+            font-size: 11px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .header-inner {
+                min-height: 64px;
+            }
+
+            nav {
+                gap: 13px;
+            }
+
+            nav a {
+                font-size: 11px;
+            }
+
+            .hero {
+                padding: 65px 0 35px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .progress-card {
+                padding: 18px;
+                margin-bottom: 45px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .lesson {
+                align-items: flex-start;
+                flex-wrap: wrap;
+            }
+
+            .lesson-number {
+                width: 50px;
+                height: 50px;
+            }
+
+            .lesson-content {
+                width: calc(100% - 70px);
+            }
+
+            .lesson-button {
+                width: 100%;
+                margin-left: 68px;
+                min-width: 0;
+            }
+        }
+
+        @media (max-width: 430px) {
+
+            nav a:nth-child(1) {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .lesson-button {
+                margin-left: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
-
     <div class="header-inner">
 
         <a href="index.html" class="logo">
-            TEORIA DE ELITE
+            TEORIA <span>DE ELITE</span>
         </a>
 
         <nav>
-
-            <a href="index.html">
-                INÍCIO
-            </a>
-
-            <a href="curso-novo.html" class="active">
-                CURSO
-            </a>
-
-            <a href="materiais.html">
-                MATERIAIS
-            </a>
-
-            <a href="sobre.html">
-                SOBRE
-            </a>
-
+            <a href="index.html">Início</a>
+            <a href="painel.html">Painel</a>
+            <a href="materiais.html">Materiais</a>
+            <a href="sobre.html">Sobre</a>
         </nav>
 
     </div>
-
 </header>
 
 
-<section class="hero">
+<main>
 
-    <div class="label">
-        SUA JORNADA MUSICAL
-    </div>
+    <section class="hero">
 
-    <h1>
-        APRENDA.<br>
-        <span>PRATIQUE. EVOLUA.</span>
-    </h1>
+        <div class="container">
 
-    <p>
-        Uma jornada construída para transformar
-        conceitos musicais em conhecimento,
-        prática e evolução.
-    </p>
+            <div class="eyebrow">
+                SUA JORNADA MUSICAL
+            </div>
 
-</section>
+            <h1>
+                APRENDA.<br>
+                <span>PRATIQUE. EVOLUA.</span>
+            </h1>
 
+            <p>
+                Uma jornada organizada para desenvolver seu conhecimento
+                musical passo a passo.
+            </p>
 
-<section class="progress-box">
-
-    <div class="progress-top">
-
-        <span>
-            PROGRESSO DO CURSO
-        </span>
-
-        <span id="progressText">
-            0%
-        </span>
-
-    </div>
-
-    <div class="progress-track">
-
-        <div
-            class="progress-fill"
-            id="progressBar">
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<section class="course">
+    <section class="container">
 
-    <div class="course-title">
+        <div class="progress-card">
 
-        <div class="label">
-            PRIMEIRO PASSO
+            <div class="progress-top">
+
+                <div class="progress-title">
+                    SEU PROGRESSO
+                </div>
+
+                <div class="progress-number" id="progressText">
+                    0%
+                </div>
+
+            </div>
+
+            <div class="progress-track">
+                <div
+                    class="progress-bar"
+                    id="progressBar">
+                </div>
+            </div>
+
+            <div class="stats">
+
+                <div class="stat">
+                    <strong id="xpValue">0</strong>
+                    <span>XP TOTAL</span>
+                </div>
+
+                <div class="stat">
+                    <strong id="starsValue">0</strong>
+                    <span>ESTRELAS</span>
+                </div>
+
+                <div class="stat">
+                    <strong id="lessonsValue">0</strong>
+                    <span>AULAS CONCLUÍDAS</span>
+                </div>
+
+            </div>
+
         </div>
 
-        <h2>
-            Fundamentos
-        </h2>
 
-        <p>
-            Comece construindo sua base musical.
-        </p>
+        <!-- =========================
+             MÓDULO 01
+        ========================= -->
 
-    </div>
+        <section class="module">
 
+            <div class="module-heading">
 
-    <div class="lessons">
+                <div class="module-label">
+                    MÓDULO 01
+                </div>
 
+                <h2>
+                    Fundamentos
+                </h2>
 
-        <article class="lesson">
-
-            <div class="lesson-number">
-                AULA 01
             </div>
 
-            <h3>
-                Som, Silêncio e Tempo
-            </h3>
 
-            <p>
-                Entenda os elementos fundamentais
-                que estão por trás da música.
-            </p>
+            <div class="lessons">
 
-            <a
-                href="aula-01.html"
-                class="lesson-button">
+                <!-- AULA 01 -->
 
-                COMEÇAR AULA →
+                <article
+                    class="lesson"
+                    data-lesson="1">
 
-            </a>
+                    <div class="lesson-number">
+                        AULA 01
+                    </div>
 
-        </article>
+                    <div class="lesson-content">
+
+                        <h3>
+                            Som, Silêncio e Tempo
+                        </h3>
+
+                        <p>
+                            Os primeiros conceitos para começar
+                            sua jornada musical.
+                        </p>
+
+                        <div
+                            class="lesson-status"
+                            data-status="1">
+                            DISPONÍVEL
+                        </div>
+
+                    </div>
+
+                    <a
+                        href="aula-01.html"
+                        class="lesson-button"
+                        data-button="1">
+                        COMEÇAR AULA →
+                    </a>
+
+                </article>
 
 
-        <article class="lesson locked">
+                <!-- AULA 02 -->
 
-            <div class="lesson-number">
-                AULA 02
+                <article
+                    class="lesson locked"
+                    data-lesson="2">
+
+                    <div class="lesson-number">
+                        AULA 02
+                    </div>
+
+                    <div class="lesson-content">
+
+                        <h3>
+                            Propriedades do Som
+                        </h3>
+
+                        <p>
+                            Altura, duração, intensidade e timbre.
+                        </p>
+
+                        <div
+                            class="lesson-status"
+                            data-status="2">
+                            BLOQUEADA
+                        </div>
+
+                    </div>
+
+                    <span class="lesson-button locked-button">
+                        🔒 BLOQUEADA
+                    </span>
+
+                </article>
+
+
+                <!-- AULA 03 -->
+
+                <article
+                    class="lesson locked"
+                    data-lesson="3">
+
+                    <div class="lesson-number">
+                        AULA 03
+                    </div>
+
+                    <div class="lesson-content">
+
+                        <h3>
+                            O que é Música?
+                        </h3>
+
+                        <p>
+                            Melodia, harmonia e ritmo.
+                        </p>
+
+                        <div
+                            class="lesson-status"
+                            data-status="3">
+                            BLOQUEADA
+                        </div>
+
+                    </div>
+
+                    <span class="lesson-button locked-button">
+                        🔒 BLOQUEADA
+                    </span>
+
+                </article>
+
+
+                <!-- AULA 04 -->
+
+                <article
+                    class="lesson locked"
+                    data-lesson="4">
+
+                    <div class="lesson-number">
+                        AULA 04
+                    </div>
+
+                    <div class="lesson-content">
+
+                        <h3>
+                            Notas Musicais
+                        </h3>
+
+                        <p>
+                            Conheça Dó, Ré, Mi, Fá, Sol, Lá e Si.
+                        </p>
+
+                        <div
+                            class="lesson-status"
+                            data-status="4">
+                            BLOQUEADA
+                        </div>
+
+                    </div>
+
+                    <span class="lesson-button locked-button">
+                        🔒 BLOQUEADA
+                    </span>
+
+                </article>
+
             </div>
 
-            <h3>
-                Propriedades do Som
-            </h3>
-
-            <p>
-                Descubra as características que
-                diferenciam os sons musicais.
-            </p>
-
-            <span class="lesson-button">
-                BLOQUEADA
-            </span>
-
-        </article>
+        </section>
 
 
-        <article class="lesson locked">
+        <!-- =========================
+             MÓDULO 02
+        ========================= -->
 
-            <div class="lesson-number">
-                AULA 03
+        <section class="module">
+
+            <div class="module-heading">
+
+                <div class="module-label">
+                    MÓDULO 02
+                </div>
+
+                <h2>
+                    Leitura Musical
+                </h2>
+
             </div>
 
-            <h3>
-                Notas Musicais
-            </h3>
 
-            <p>
-                Conheça a organização das notas
-                dentro da linguagem musical.
-            </p>
+            <div class="lessons">
 
-            <span class="lesson-button">
-                BLOQUEADA
-            </span>
+                <article class="lesson locked" data-lesson="5">
 
-        </article>
+                    <div class="lesson-number">
+                        AULA 05
+                    </div>
 
+                    <div class="lesson-content">
 
-        <article class="lesson locked">
+                        <h3>
+                            Pentagrama
+                        </h3>
 
-            <div class="lesson-number">
-                AULA 04
-            </div>
+                        <p>
+                            Linhas, espaços e organização musical.
+                        </p>
 
-            <h3>
-                Pentagrama
-            </h3>
+                        <div class="lesson-status">
+                            BLOQUEADA
+                        </div>
 
-            <p>
-                Aprenda como a música é representada
-                visualmente.
-            </p>
+                    </div>
 
-            <span class="lesson-button">
-                BLOQUEADA
-            </span>
+                    <span class="lesson-button locked-button">
+                        🔒 BLOQUEADA
+                    </span>
 
-        </article>
+                </article>
 
 
-        <article class="lesson locked">
+                <article class="lesson locked" data-lesson="6">
 
-            <div class="lesson-number">
-                AULA 05
-            </div>
+                    <div class="lesson-number">
+                        AULA 06
+                    </div>
 
-            <h3>
-                Claves
-            </h3>
+                    <div class="lesson-content">
 
-            <p>
-                Entenda a função das claves na
-                leitura musical.
-            </p>
+                        <h3>
+                            Clave de Sol
+                        </h3>
 
-            <span class="lesson-button">
-                BLOQUEADA
-            </span>
+                        <p>
+                            Entenda a função da clave e comece a ler notas.
+                        </p>
 
-        </article>
+                        <div class="lesson-status">
+                            BLOQUEADA
+                        </div>
 
+                    </div>
 
-        <article class="lesson locked">
+                    <span class="lesson-button locked-button">
+                        🔒 BLOQUEADA
+                    </span>
 
-            <div class="lesson-number">
-                AULA 06
-            </div>
+                </article>
 
-            <h3>
-                Figuras Musicais
-            </h3>
 
-            <p>
-                Conheça as figuras que representam
-                diferentes durações.
-            </p>
+                <article class="lesson locked" data-lesson="7">
 
-            <span class="lesson-button">
-                BLOQUEADA
-            </span>
+                    <div class="lesson-number">
+                        AULA 07
+                    </div>
 
-        </article>
+                    <div class="lesson-content">
 
+                        <h3>
+                            Clave de Fá
+                        </h3>
 
-    </div>
+                        <p>
+                            Conheça a clave utilizada para regiões graves.
+                        </p>
 
-</section>
+                        <div class="lesson-status">
+                            BLOQUEADA
+                        </div>
 
+                    </div>
 
-<footer>
+                    <span class="lesson-button locked-button">
+                        🔒 BLOQUEADA
+                    </span>
 
-    TEORIA DE ELITE · APRENDA · PRATIQUE · EVOLUA
+                </article>
 
-</footer>
 
+                <article class="lesson locked" data-lesson="8">
 
-<script>
+                    <div class="lesson-number">
+                        AULA 08
+                    </div>
 
-const navigation =
-    performance.getEntriesByType("navigation")[0];
+                    <div class="lesson-content">
 
-if (navigation && navigation.type === "reload") {
-    window.location.href = "index.html";
-}
+                        <h3>
+                            Leitura das Notas
+                        </h3>
 
+                        <p>
+                            Pratique o reconhecimento das notas.
+                        </p>
 
-const completed =
-    Number(
-        localStorage.getItem("completedLessons")
-    ) || 0;
+                        <div class="lesson-status">
+                            BLOQUEADA
+                        </div>
 
-const total = 50;
+                    </div>
 
-const percentage =
-    Math.min(
-        Math.round(
-            completed / total * 100
-        ),
-        100
-    );
-
-document.getElementById(
-    "progressBar"
-).style.width =
-    percentage + "%";
-
-document.getElementById(
-    "progressText"
-).textContent =
-    percentage + "%";
-/* AULAS CONCLUÍDAS */
-
-const lessons =
-    document.querySelectorAll(".lesson");
-
-lessons.forEach(function(lesson) {
-
-    const numberElement =
-        lesson.querySelector(".lesson-number");
-
-    if (!numberElement) return;
-
-    const numero =
-        numberElement.textContent
-        .trim()
-        .replace("AULA ", "")
-        .padStart(2, "0");
-
-    const chave =
-        "aula" + numero + "Concluida";
-
-    if (localStorage.getItem(chave) === "true") {
-
-        const button =
-            lesson.querySelector(".lesson-button");
-
-        if (button) {
-
-            button.textContent =
-                "✓ AULA CONCLUÍDA";
-
-            button.style.background =
-                "#222";
-
-            button.style.color =
-                "#aaa";
-
-            button.style.pointerEvents =
-                "none";
-
-        }
-
-    }
-
-});
-const aulasConcluidas =
-    Number(localStorage.getItem("completedLessons")) || 0;
-
-if (aulasConcluidas >= 1) {
-
-    const aula01 =
-        document.querySelector(".lesson:not(.locked)");
-
-    if (aula01) {
-
-        const botao =
-            aula01.querySelector(".lesson-button");
-
-        if (botao) {
-
-            botao.textContent = "✓ AULA CONCLUÍDA";
-
-            botao.removeAttribute("href");
-
-            botao.style.background = "#222";
-            botao.style.color = "#aaa";
-            botao.style.pointerEvents = "none";
-        }
-    }
-}
+                    <span class=
